@@ -1,0 +1,2685 @@
+%\documentclass[prd,twocolumn,amsmath,amssymb,floatfix,superscriptaddress]{revtex4-1}
+%\documentclass[prd,onecolumn,amsmath,amssymb,floatfix,superscriptaddress]{revtex4-1}
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+%\usepackage{bm}
+%\usepackage{hyperref}
+%\DeclareMathOperator{\tr}{tr}
+%\DeclareMathOperator{\sgn}{sgn}
+%\usepackage{color}
+
+\documentclass[onecolumn,notitlepage,showpacs,amsmath,amssymb,prd,floatfix]{revtex4-1}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage[varg]{txfonts}
+\usepackage{natbib}
+\usepackage{color}
+
+
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+\definecolor{darkgreen}{cmyk}{0.85,0.2,1.00,0.2} 
+\definecolor{purple}{cmyk}{0.5,1.0,0,0} 
+\def\physrep{Phys.~Rep.}
+
+% default highlighting for our editing purposes
+\newcommand{\mtrv}[1]{{\textcolor{blue}{#1}}}
+\newcommand{\hidden}[1]{\textcolor{purple}{#1}}
+\newcommand*\widebar[1]{\@ifnextchar^{{\wide@bar{#1}{0}}}{\wide@bar{#1}{1}}}
+%
+
+% hidden highlighting for distribution
+%\newcommand{\wh}[1]{{#1}}
+%\newcommand{\mtrv}[1]{{#1}}
+%\newcommand{\yl}[1]{{#1}}
+%\newcommand{\hidden}[1]{}
+%
+
+\newcommand{\parg}{}
+
+
+
+\newcommand{\tX}{{X}}
+
+\def\barray{\begin{array}} 
+\def\earray{\end{array}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ben{\begin{equation} \nonumber}
+\def\een{\end{equation}}
+\def\ban{\begin{eqnarray*}}
+\def\ean{\end{eqnarray*}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+
+\def\ave#1{\left\langle #1 \right\rangle}
+
+
+\def\({\left(}
+\def\){\right)}
+\def\half{{1\over2}}
+
+\newcommand{\simgt}{\lower.5ex\hbox{$\; \buildrel > \over \sim \;$}}
+\newcommand{\simlt}{\lower.5ex\hbox{$\; \buildrel < \over \sim \;$}}
+
+
+\newcommand{\mnras}{Mon.~Not.~Roy.~Astron.~Soc.}
+%\newcommand{\physrep}{Phys.~Rep.}
+\newcommand{\jcap}{JCAP}
+\newcommand{\pasj}{PASJ}
+\newcommand{\apjl}{\apj~Lett.}
+\newcommand{\aap}{Astronomy \& Astrophysics}
+
+\newcommand{\tr}[1]{[#1]}
+\newcommand{\gisig}{ {\boldsymbol{\Sigma}}}
+\newcommand{\sgisig}{ {\boldsymbol{\gamma}}}
+\newcommand{\ul}[3]{#1^{#2}_{\hphantom{#2}#3}}
+\newcommand{\lu}[3]{#1_{#2}^{\hphantom{#2}#3}}
+\newcommand{\fid}{\Sigma}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+\newcommand{\bfid}{\boldsymbol{\Sigma}}
+\newcommand{\bg}{{\bf g}}
+\newcommand{\bmin}{\boldsymbol{\eta}}   
+\newcommand{\blambda}{\boldsymbol{\Lambda}}   
+\newcommand{\bvier}{{\bf e}}
+\newcommand{\bfvier}{{\bf L}}
+
+\newcommand{\bx}{{\bf x}}
+\newcommand{\by}{{\bf y}}
+\newcommand{\bk}{{\bf k}}
+\newcommand{\btheta}{{\bm{\theta}}}
+\newcommand{\bq}{{\bf q}}
+\newcommand{\bl}{{\bf l}}
+\newcommand{\bt}{{\bf \theta}}
+\newcommand{\lin}{{\rm L}}
+\newcommand{\non}{{\rm N}}
+\newcommand{\tdelta}{\tilde{\delta}}
+\newcommand{\tW}{\tilde{W}}
+\newcommand{\tu}{\tilde{u}}
+\newcommand{\fpole}{{\cal F}}
+\newcommand{\dr}{\mathrm{d}}
+
+\newcommand{\deltab}{\delta_{\rm b}}
+\newcommand{\deltam}{\delta_{\mathrm{m}}}
+\newcommand{\deltaml}{\delta_{\mathrm{m,lin}}}
+\newcommand{\tdeltam}{\tilde{\delta}_{\mathrm{m}}}
+\newcommand{\tdeltaml}{\tilde{\delta}_{\mathrm{m,lin}}}
+\newcommand{\deltah}{\delta_{\mathrm{h}}}
+%\newcommand{\hphm}{\hat{P}_{\mathrm{hm}}}
+\newcommand{\phm}{P_{\mathrm{hm}}}
+\newcommand{\phml}{P_{\mathrm{hm}}^{\rm lin}}
+\newcommand{\hphm}{\hat{P}_{\mathrm{hm}}}
+\newcommand{\chm}{C_{\mathrm{hm}}}
+\newcommand{\hchm}{\hat{C}_{\mathrm{hm}}}
+\newcommand{\phh}{P_{\mathrm{hh}}}
+\newcommand{\chh}{C_{\mathrm{hh}}}
+\newcommand{\hphh}{\hat{P}_{\mathrm{hh}}}
+\newcommand{\hchh}{\hat{C}_{\mathrm{hh}}}
+\newcommand{\bh}{\mathrm{h}}
+\newcommand{\bthmhm}{\bar{T}_{\rm hmhm}}
+\newcommand{\bnh}{\frac{\dr n}{\dr M}}
+\newcommand{\bnhs}{\bar{n}_{\rm h}^S}
+\newcommand{\bnhd}{\frac{\dr n}{\dr M'}}
+%\bar{n}_{\mathrm{h}}}
+\newcommand{\pml}{P^{\rm lin}_{\rm m}}
+\newcommand{\sigmacri}{\Sigma_{\rm cr}^{-1}}
+\newcommand{\sigmacr}{\Sigma_{\rm cr}}
+\newcommand{\sigmah}{\Sigma_{\rm h}}
+\newcommand{\hNh}{\hat{N}_{\rm h}}
+\newcommand{\hdNh}{\widehat{\delta N}_{\rm h}}
+\newcommand{\bNh}{\bar{N}_{\rm h}}
+\newcommand{\tdsigmah}{\widetilde{\delta N}_{\rm h}\!}
+\newcommand{\tsigmah}{\tilde{\Sigma}_{\rm h}}
+\newcommand{\tdeltah}{\tilde{\delta}_{\rm h}}
+\newcommand{\dsigma}{\Delta\Sigma}
+\newcommand{\hdsigma}{\widehat{\dsigma}}
+\newcommand{\havedsigma}{\widehat{\ave{\dsigma}}}
+\newcommand{\hnh}{\hat{n}_{\mathrm{h}}}
+\newcommand{\hdnh}{\widehat{\delta n}_{\mathrm{h}}}
+\newcommand{\dnh}{\delta n_{\mathrm{h}}}
+\newcommand{\tdnh}{\widetilde{\delta n}_{\mathrm{h}}}
+
+\newcommand{\Omegam}{{\Omega_\textrm{m}}}
+\newcommand{\Omegab}{{\Omega_\textrm{b}}}
+\newcommand{\Omegac}{{\Omega_\textrm{c}}}
+\newcommand{\OmegaL}{{\Omega_\Lambda}}
+\newcommand{\OmegaK}{{\Omega_K}}
+\newcommand{\As}{{A_\textrm{s}}}
+\newcommand{\lnAs}{{\ln\!A_\textrm{s}}}
+\newcommand{\ns}{{n_\textrm{s}}}
+\newcommand{\br}{{\rm b}}
+\newcommand{\hMpci}{$h\,$Mpc$^{-1}$}
+\newcommand{\hiMpc}{$h^{-1}\,$Mpc}
+
+\newcommand{\Dv}{{\cal P}}
+
+\def\avrg#1{\left\langle #1 \right\rangle}
+\def\avrgb#1{\left\langle #1 \right\rangle_\textrm{b}}
+
+
+\begin{document}
+
+\title{Super sample variance of stacked lensing}
+
+\author{Masahiro Takada$^1$, Takahiro Nishimichi$^{1,2}$, Ryuichi
+Takahashi$^{3}$, Masamune Oguri$^2$ TBD}
+%
+\affiliation{$^1$Kavli Institute for the Physics
+and Mathematics of the Universe (Kavli IPMU, WPI), The University of
+Tokyo, Chiba 277-8583, Japan}
+\affiliation{$^2$Physics Department, The University of Tokyo, Bunkyo, Tokyo 113-0031, Japan}
+\affiliation{$^3$Department of Physical Science, Hiroshima University, 1-3-1 Kagamiyama,
+Higashi-Hiroshima, Hiroshima 739-8526, Japan}
+
+ \begin{abstract}
+  Title is still tempolary... a better title we should come up with
+  later. 
+To be filled ... 
+ \end{abstract}
+\maketitle
+
+\section{Introduction}
+
+\cite{HuKravtsov:03}
+\cite{TakadaBridle:07}
+\cite{TakadaJain:09}
+\cite{Kayoetal:13}
+\cite{TakadaHu:13} \cite{Lietal:14a} \cite{Lietal:14b}
+\cite{OguriTakada:11}
+\cite{Hikageetal:13} \cite{Hikageetal:12}
+\cite{TakadaSpergel:13} \cite{Schaanetal:14} \cite{Miyatakeetal:15a}
+\cite{Miyatakeetal:15}
+\cite{Satoetal:09} \cite{Okabeetal:10}
+\cite{Lietal:15} \cite{Baldaufetal:15}
+\cite{Mandelbaumetal:05}
+\cite{Mandelbaumetal:13}
+\cite{MoreMiyatakeEtAl15}
+
+
+\section{Covariance of stacked lensing in a survey window}
+
+%\subsection{Survey window}
+%
+%Assume we measure observables, the halo density field and the lensing
+%field, through a survey window $W(\btheta)$, which is 1 in the measured
+%region and 0 in the unmeasured region. The survey area is
+%%
+%\begin{equation}
+% \Omega_S\equiv \int\!\dr^2\btheta~W(\btheta).
+%\end{equation}
+%%
+%In the following, we express our observables taking into account the
+%effect of survey window. 
+
+
+\subsection{Halo statistics: number counts and projected power spectrum}
+
+First we consider statistical observables of halos. We assume that halos
+in a survey region can be identified from observables such as optical
+richness and X-ray observables, and then assume that halo mass and
+redshift of each halo are available. However, the following discussion
+can be extended to a more generally case where only their proxies
+are available.
+%can be obtained for each halo.
+
+%Following the formulatoin in Ref.~\cite{HuKravtsov:03}, we assume that
+%that
+The number density fluctuation field for halos in the mass range
+$[M,M+\dr M]$ is given as
+%to the underlying density field via a linear halo bias as
+%
+\begin{equation}
+ n_\bh(\bx; M)\dr M\simeq
+  %\bar{n}_\bh(M)\dr M
+  \frac{\dr n}{\dr M}
+  \left[1+\deltah(\bx; M)\right]
+\end{equation}
+%
+where
+%$\bnh$
+$dn/dM$ is the (ensemble-average) number density of halos with masses
+ $[M,M+\dr M]$, and $\deltah(\bx)$ is the 3D number density fluctuation
+ field of the halos.
+
+
+Denoting the radial selection function by $f_\bh(\chi;z_L)$ and the halo
+mass selection at each redshift by $S(M;\chi)$, we can define the
+projected number density field of halos, integrated over ranges of
+redshift and halo masses, in terms of the 3D density field $n_{\rm
+h}(\bx;\chi)$ as
+%
+\begin{eqnarray}
+ N_{\rm h}(\bx_\perp)&=&\int\!\dr\chi~f_\bh(\chi;z_L)\int\!\dr M~S(M;\chi)W(\bx_\perp)
+  n_\bh(\bx;M,\chi)\nonumber\\
+ &=&\int\!\dr\chi~f_\bh(\chi;z_L)\int\!\dr M~S(M;\chi)\frac{\dr n}{\dr M}
+  \left[1+W(\bx_\perp)\deltah(\chi,\bx_\perp)\right],
+  \label{eq:Nh}
+\end{eqnarray}
+%
+where we introduced the notation ``$z_L$'' in $f_\bh(\chi)$ to
+explicitly mean that the radial selection is non-zero around a target
+redshift $z_L$, which will be below taken for the redshift slice of
+lensing halos.  $N_{\rm h}(\bx_\perp)$ is the projected number density
+field in dimension of [Mpc$^{-2}$], not an angular number density, and
+we throughout this paper employ distant observer approximation as well
+as flat-sky approximation.  The selection functions are generally
+defined so as to satisfy $0\le f_{\rm h}\le 1$ and $0\le S(M;\chi)\le
+1$. For an ideal, homogeneous complete selection, $f_{\rm h}=0$ or $1$
+and the same for $S(M)$.  The vector $\bx_\perp$ in the above equation
+denotes the position vector in the two-dimensional plane at distance
+$\chi$, perpendicular to the line-of-sight direction, which is converted
+from the angular position $\btheta$ via relation $\bx_\perp\equiv
+\chi\btheta$. $W(\btheta)$ is a survey window, which is 1 in the
+measured region and 0 in the unmeasured region. Hence the survey area is
+given as
+%
+\begin{equation}
+ \Omega_S\equiv \int\!\dr^2\btheta~W(\btheta).
+\end{equation}
+%
+
+
+The ``mean'' surface density in the finite-area survey region is defined
+by the survey window average of Eq.~(\ref{eq:Nh}):
+%
+\begin{eqnarray}
+ \hNh(z_L)=\frac{1}{\Omega_S}\int\!\dr^2\btheta~N_{\rm h}(\bx_\perp)
+%&=&\int\!\dr\chi~f_\bh(\chi;z_L)\hnh^S(\chi)
+%\nonumber\\
+ &\simeq &\int\!\dr\chi~f_\bh(\chi;z_L)\int\!\dr M~S(M;\chi)\frac{\dr
+ n}{\dr M}\left[
+	       1+\frac{b(M)}{\chi^2\Omega_S(\chi)}\int\!\dr^2\bx_\perp~W(\bx_\perp)
+	       \deltaml(\chi,\bx_\perp)\right]\nonumber\\
+&=&\int\!\dr\chi~f_\bh(\chi;z_L)\int\!\dr M~S(M;\chi)\frac{\dr n}{\dr
+ M}\left[1+b(M)\deltab(\chi)\right]\nonumber\\
+&=& \bNh\left[1+\frac{1}{\bNh}\int\!\!\dr\chi~f_{\rm h}(\chi)\bnhs\bar{b}^S\deltab\right],
+\label{eq:hNh}
+\end{eqnarray}
+%
+where quantities with hat $\hat{\hspace{1em}}$ notation, here and
+hereafter, denote their estimators, we have again used the conversion
+$\bx_\perp =\chi\btheta$, and $\chi^2\Omega_S$ is the effective survey
+area
+%in the perpendicular plane
+at distance $\chi$, in units of [${\rm Mpc}^2$].
+The quantity $\deltab(\chi)$ is the coherent density contrast that
+exists across the survey region at redshfit $\chi=\chi(z)$, which we
+call hereafter the background mode: 
+%
+\begin{equation}
+\deltab(\chi)\equiv
+ \frac{1}{\Omega_S}\int\!\dr^2\btheta~W(\btheta)\deltaml(\chi,\chi\btheta)
+ =\frac{1}{\chi^2\Omega_S(\chi)}\int\!\dr^2\bx_\perp ~W(\bx_\perp)\deltaml(\chi,\bx_\perp).
+\label{eq:deltab}
+\end{equation}
+%
+We here assumed that the background mode at each redshift is defined by
+the survey window average of Fourier modes in the two-dimensional plane
+perpendicular to the line-of-sight direction. Since we will later employ
+the Limber's approximation, we throughout this paper ignore the radial
+mode of the background mode which is a good approximation for the
+lensing statistics.  In the second equality of Eq.~(\ref{eq:hNh}), we
+assumed that the halo density field at large scales, after the window
+average, is related to the underlying mass density field as
+$\deltah(\bx; M)\simeq b(M)\deltaml(\bx)$, where $\deltaml(\bx)$ is the
+mass density fluctuation field in the linear regime and $b$ is the
+linear halo bias, assuming that the angular average over a sufficiently
+wide area smooths out all the small-scale fluctuations. In the last
+equality we defined the ensemble-average halo number density and bias,
+integrated over the halo mass range, in each redshift slice at
+$z=z(\chi)$:
+%
+\begin{eqnarray}
+ \bnhs(\chi) &\equiv & \int\!\!\dr M~ \frac{dn}{dM}S(M), \nonumber\\
+ \bar{b}^S(\chi)&\equiv & \frac{1}{\bnhs}\int\!\!\dr M~
+  \frac{dn}{dM}S(M)\bnh b(M), 
+\label{eq:aveb}
+\end{eqnarray}
+%
+where quantities with bar notation denote their ensemble average
+quantities.  Furthermore, $\bNh$ in Eq.~(\ref{eq:hNh}) is the ensemble
+average or global mean of the surface halo number density:
+%
+\begin{equation}
+ \bNh(z_L)\equiv 
+  \ave{\hNh(z_L)}=\int\!\dr\chi~f_\bh(\chi;z_L)\bnhs(\chi),
+%\int\!\dr
+% M~S(M;\chi)\frac{\dr n}{\dr M}, 
+\end{equation}
+%
+where we have used $\ave{\deltab}=0$.  
+
+
+%$b(M)$ is the linear bias for halos of mass $M$, $\deltaml(\bx)$
+%is the three-dimensional mass fluctuation field, and $\bar{n}_{\bh}$ is
+%the {\em global} mean number density, i.e. the halo mass function. Note
+%that, assuming that the above equation is valide for a coase-grained
+%viewpoint and therefore $\deltaml$ is from long-wavelength modes and in
+%the linear regime, we
+%consider up to the first-order bias or equivalently ignored the
+%higher-order bias contributions.
+
+
+
+
+\subsection{Stacked lensing: An estimator of the projected halo-mass cross-correlation}
+
+The lensing convergence field in an angular position $\btheta$ on the
+sky arises from a projection of the three-dimensional mass fluctuation
+field $\deltam$, weighted by the lensing efficiency kernel:
+%
+\begin{equation}
+ \kappa^W\!(\btheta)\equiv W(\btheta)\kappa(\btheta)=
+  \int\!\dr\chi~
+ f_\kappa(\chi)W(\btheta)\deltam(\chi,\chi\btheta;z)
+ =\int\!\dr\chi~
+ f_\kappa(\chi)
+ \int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+ \frac{\dr k_\parallel}{2\pi}\tilde{\delta}_{\rm m}^W\!(k_\parallel,\bk)e^{ik_\parallel\chi+i\bk_\perp\cdot\bx_\perp}
+\label{eq:wkappa}
+\end{equation}
+%
+where $\bx_\perp=\chi\btheta$, $\delta_m(\bx)$ is the three-dimensional
+mass fluctuation field, and the lensing radial kernel $f_\kappa(\chi)$
+is given as
+%
+\begin{equation}
+ f_\kappa(\chi)=\bar{\rho}_{\rm m0} \sigmacri(\chi).
+  \label{eq:fkappa}
+\end{equation}
+%
+The quantity $\sigmacr$ is the critical surface mass density defined for
+each observer-lens-source system:
+%
+\begin{equation}
+\sigmacri(z)\equiv 4\pi Ga^{-1}\chi(z)\left[1-\chi(z)\ave{\frac{1}{\chi_s}}\right],
+\end{equation}
+%
+with 
+$\ave{1/\chi_s}=
+\left.\int_{z_{\rm s,min}}^\infty\!dz_s
+ p(z_s)[1/\chi(z_s)]\right/
+ \int_{z_{\rm s,min}}^\infty\!dz_s p(z_s)$,
+%
+where $p(z_s)$ is the redshift distribution of source galaxies, and
+$z_{\rm s,min}$ is the minimum redshift which an observer determines to
+select source galaxies behind lensing halos at $z_L$.  The factor of
+$\bar{\rho}_{\rm m0}$ in Eq.~(\ref{eq:wkappa}), instead of the mean
+density $\bar{\rho}_{\rm m}(z)$ at redshift $z$, is from our use of the
+comoving coordinates.
+
+Before going to the detailed calculation, it would be illustrative to
+reexpress the convergence field as a sum of two contributions:
+%
+\begin{eqnarray}
+\kappa(\btheta)&\simeq&
+% \nonumber\\
+% &=&
+% =
+ \bar{\rho}_{\rm
+ m0}\sigmacri(z_L)\int_{z_L}\!\!\dr\chi~\deltam(\chi_L,\chi_L\btheta)+
+\bar{\rho}_{\rm m0}\int_{z\ne z_L}\!\dr\chi~
+\sigmacri(z)\deltam(\chi,\chi \btheta).
+\label{eq:kappa_concept}
+\end{eqnarray}
+%
+The first term on the r.h.s. denotes a lensing contribution from the
+mass distribution at lens redshift, assuming a thin redshift slice where
+the critical density $\sigmacr$ is not largely varying, and the second
+term is the lensing contribution from the mass distribution at different
+redshifts, which we call the cosmic shear contribution.
+
+The stacked lensing for sampled halos with known redshifts probes the
+average mass distribution surrounding the lensing halos. Observationally
+the stacked lensing profile can be estimated by averaging shapes of
+background galaxies for all the pairs of halos and source galaxies
+\cite{Miyatakeetal:15,Niikuraetal:15}:
+%
+\begin{equation}
+ \widehat{\ave{\dsigma}}(R)\equiv\frac{1}{N_{\rm pairs}}
+	\left.\sum_{{\rm all~ pairs}; (l,s)}\sigmacr(z_{l},z_s)\epsilon_{+(s)}
+	\right|_{R=\chi(z_{l})\Delta\theta_{ls}},
+\end{equation}
+%
+where the summation runs over all the halo and source galaxy pairs each
+of which is separated by a particular projected distance $R$ in the lens
+plane of each halo at $z_l$; $\Delta\theta_{ls}$ is the angular
+separation between lens and source in each pair, and $\chi(z_l)$ is the
+distance to halo at redshift $z_l$, and therefore
+$R=\chi(z_l)\Delta\theta_{ls}$. $\epsilon_+$ is the tangential component
+of source galaxy ellipticity with respect to the halo center.  Here we
+assume that redshift information of each source galaxy is also
+available, e.g., based on the photometric redshift estimation.  Thus,
+{\em a priori} knowledge of each lens redshift allows us to probe the
+average projected mass profile as a function of comoving distances in
+each lens plane, rather than angular radii
+\cite{Hikageetal:13,Nishizawaetal:13}.  We should also notice that the
+average is done on each source-halo basis, and therefore the stacked
+lensing does not suffer from a dilution of the lensing signals due to
+the radial projection.  For simplicity we do not consider a weighting in
+the above average, which is often employed in an actual measurement in
+order to optimize the signal-to-noise ratio
+\citep[e.g.,][]{Miyatakeetal:15}.
+
+The ensemble-average expectation, i.e. the cosmological signal of the
+stacked lensing arises from the cross-correlation between the projected
+number density fluctuation field of lensing halos and the lensing shear
+field:
+%
+\begin{equation}
+{\ave{\dsigma}}(R)=\frac{1}{\bNh(z_L)}
+  \ave{\delta N_{\rm h}(\bx_\perp)\sigmacr(\chi)
+  \gamma_{+}(\bx'_\perp)}_{R=|\bx_\perp-\bx'_\perp|;\bx'_\perp=\chi\btheta},
+  \label{eq:e_dsigma}
+\end{equation}
+%
+where $\gamma_+(\bx_\perp^{\prime})$ is the tangential component of the
+shear field with respect to halo center, in the angular direction of
+$\bx_\perp^{\prime}$ via the relation $\bx_\perp^{\prime}=\chi\btheta$.
+The use of the number density fluctuation field $\delta N_{\rm h}$ in
+the above defintion is due to the fact that the average of the
+tengential shear with respect to random points is vanishing.  The
+average of non-lensing mode $\gamma_\times$, which is the
+45-degrees-rotated shear component relative to $\gamma_+$, is
+vanishing,$\ave{\delta N_{\rm h}\sigmacr \gamma_\times}=0$, and
+therefore this can be used as a diagnostic of residual systematic errors
+such as an error due to an imperfect shape measurement.
+
+If defining the projected cross-power spectrum of halos and the
+surrounding mass distribution, the stacked lensing profile is expressed
+as
+%
+\begin{equation}
+ \ave{\dsigma}(R)=\int\!\!\frac{kdk}{2\pi}~\chm(k)J_2(kR),
+\end{equation}
+%
+where $J_2(x)$ is the 2nd-order Bessel function and the cross-power
+spectrum is defined as
+%
+\begin{eqnarray}
+ \chm(k)&=&\frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int\!\!\dr\chi~f_{\rm
+  h}(\chi)\int\!\!\dr M~\bnh S(M)P_{\rm hm}(k;M,\chi)
+  =\frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int\!\!\dr\chi~f_{\rm
+  h}(\chi)\bnhs\phm^S(k;\chi),
+  \label{eq:chm}
+\end{eqnarray}
+%
+where $\phm(k;M,\chi)$ is the 3D cross-power spectrum between the mass
+distribution and halos of mass $M$ and at redshift $z=z(\chi)$, and
+$\phm^S(k;\chi)$ is the spectrum averaged by halo masses:
+%
+\begin{equation}
+ \phm^S(k;\chi)\equiv \frac{1}{\bnhs(\chi)}\int\!\!\dr M~\bnh S(M)\phm(k;M).
+\label{eq:phmS}
+\end{equation}
+%
+If we employ the halo model, we can express $\chm(k)$ by a sum
+of the 1- and 2-halo terms:
+%
+\begin{equation}
+ \chm(k)=\chm^{\rm 1h}(k)+\chm^{\rm 2h}(k),
+\end{equation}
+%
+with
+%
+\begin{eqnarray}
+\chm^{\rm 1h}(k)&\equiv &
+  \frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int_{\chi_L}\!\dr\chi ~f_\bh(\chi)
+  \int\!\dr M~\bnh S(M,z_L)\frac{M}{\bar{\rho}_{\rm m0}}u_M(k;\chi)
+  =\frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int_{\chi_L}\!\dr\chi
+  ~f_\bh(\chi)\bnhs{\cal I}^{0}_1(k;\chi),\nonumber\\
+%I^{(S)0}_1(k;\chi),\nonumber \\
+ \chm^{\rm 2h}(k)&=&
+ \frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int_{\chi_L}\!\dr\chi ~f_\bh(\chi)
+  \int\!\dr M~\bnh S(M)b(M)\pml(k;\chi)
+=\frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int_{\chi_L}\!\dr\chi
+~f_\bh(\chi) \bnhs \bar{b}^S
+\pml(k;\chi),
+%\simeq \bar{b}_1\bar{\rho}_{\rm m0}P^{\rm lin}_{\rm m}(k),\nonumber \\
+\end{eqnarray}
+%
+where we introduced the notations defined as
+%
+\begin{eqnarray}
+ {\cal I}^{\beta}_\mu(k_1,\cdots,k_\mu)&\equiv&\frac{1}{\bnhs}
+  \int\!\dr M\bnh S(M)
+  \left(\frac{M}{\bar{\rho}_{\rm m0}}\right)^\mu
+  b^\beta\prod_{i=1}^\mu u_M(k_i),
+%\nonumber\\
+% I^\beta_\mu(k_1,\cdots,k_\mu)&\equiv& \int\!\dr M\bnh
+%  \left(\frac{M}{\bar{\rho}_{\rm m0}}\right)^\mu
+%b^\beta\prod_{i=1}^\mu u_M(k_i),
+\end{eqnarray}
+%
+where we have assumed that the halo power spectrum is modeled as
+$\phh(k; M, M')\simeq b(M)b(M')\pml(k)$, and $u_M(k)$ is the Fourier
+transform of mass density profile for halos of mass $M$. Note ${\cal
+I}^{(S)1}_0=\bar{b}^S$ (see Eq.~\ref{eq:aveb}).
+
+
+Taking into account the survey window, we can define an estimator of the
+projected cross-power spectrum as
+%
+\begin{eqnarray}
+ \hchm(k_i)&\equiv & \frac{1}{\hNh(z_L)}\int\!\dr\chi\int\!\dr\chi'~f_\bh(\chi)
+  \sigmacr(\chi)
+  f_\kappa(\chi')\int\!\dr M~\bnh S(M)
+%  \nonumber\\
+% &&\times
+  \frac{1}{\chi^2\Omega_S}
+  \int_{|\bk_\perp|\in k_i}\!\frac{\dr^2\bk_\perp}{A(k_i)}\int\!\frac{\dr k_\parallel}{2\pi}
+  \frac{\dr k^{\prime }_\parallel}{2\pi}
+  \tdeltah^W\!(k_\parallel,\bk_\perp)\tdeltam^W\!(k'_\parallel,-\bk_\perp)
+  e^{ik_\parallel\chi+ ik'_\parallel\chi'}.\nonumber\\
+\label{eq:e_chm}
+\end{eqnarray}
+%
+where 
+%
+\begin{equation}
+  \tdeltah^W\!(k_\parallel,\bk_\perp)\equiv 
+  \int\!\frac{\dr^2\bq}{(2\pi)^2}\tW(\bq)
+  \tdeltah(k_\parallel,\bk_\perp-\bq),
+\end{equation}
+%
+$\tW(\bq;\chi)\equiv
+\int\!\dr^2\bx_\perp~W(\bx)e^{-i\bq\cdot\bx_\perp}$, the similar
+definition for $\tdeltam^W$, and quantities with tilde symbol hereafter
+denote their Fourier transforms. The integral $\int\!\!\dr^2\bk_\perp$
+is over an annulus in $\bk_\perp$ space of width $\Delta k$, and the
+area $A(k_{\perp i})\simeq 2\pi k_{\perp i}\Delta k$.  Note that the
+projected number density $\hNh(z_L)$ in the denominator on the r.h.s. is
+an estimator of the mean projected halo number density, and therefore
+includes a contribution due to the background density modulation
+$\deltab$ (see Eq.~\ref{eq:hNh}).
+
+
+Using the halo power spectrum definition,
+%
+\begin{equation}
+ \ave{\deltah(k_\parallel,\bk_\perp;M)\deltam(k'_\parallel,\bk'_{\perp})}=(2\pi)^3
+  \delta_D(k_\parallel+k'_\parallel)\delta_D^2(\bk_\perp+\bk'_\perp)\phm(k;M), 
+\end{equation}
+%
+and employing the Limber's approximation, we can find that the ensemble
+average of the power spectrum estimator gives the expectation:
+%
+\begin{eqnarray}
+\ave{\hchm(k_i)}&=&\frac{1}{\bNh(z_L)}\int\!\!\dr~f_{\rm
+ h}(\chi)\sigmacr(\chi)f_\kappa(\chi)\int\!\!\dr M~\bnh S(M)
+ \frac{1}{\chi^2\Omega_S}\int_{|\bk_\perp|\in
+ k_i}\!\!\frac{\dr^2\bk_\perp}{A(k_i)}
+ \int\!\!\frac{\dr^2\bq}{(2\pi)^2}\phm(|\bk_\perp-\bq|)|\tW(\bq)|^2\nonumber\\
+ &\simeq& \frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}
+  \int\!\!\dr\chi~f_{\rm h}(\chi)\int\!\!\dr M \bnh
+  S(M)\phm(k_i;M,\chi)=\chm(k_i), 
+\end{eqnarray}
+%
+where we have used $\phm(|\bk_\perp-\bq|)\simeq \phm(k_\perp)$ over the
+integration range $\dr^2\bq$ where the survey window supports, and also
+assumed that $\phm(k)$ is not a rapidly varying function within the bin
+width $\Delta k$ around the $k_i$-bin ($k_i \gg q$).  Here and hereafter
+we will often omit ``$_{\perp}$'' in $k_{\perp}$ for notational
+simplicity.  In the second equality on the r.h.s., we used the general
+identity for the window function:
+%
+\begin{equation}
+ \chi^2\Omega_S=\int\!\dr^2\bx_\perp~ W(\bx_\perp)^n=
+  \int\!\!\left[\prod_{a=1}^n\frac{d\bq_a}{(2\pi)^2}\tW(\bq_a)\right](2\pi)^2
+  \delta_D^2(\bq_{1\dots n}),
+\end{equation}
+%
+where $\bq_{1\dots n}\equiv \bq_1+\bq_2+\cdots+\bq_n$. For $n=2$,
+$\chi^2\Omega_S=\Omega_S\int\!\dr^2\bq/(2\pi)^2 ~ |\tW(\bq)|^2$.
+%the identity
+%$\int\!\dr^2\bq/(2\pi)^2~|\tW(\bq)|^2=\chi^2 \Omega_s$, derived from the fact
+%$\int\!\dr^2\bx_\perp~ W(\btheta)^n=\chi^2\Omega_S$ with
+%$\bx_\perp=\chi\btheta$.
+%
+%\begin{equation}
+%\Omega_S=\int\!d\btheta~W(\btheta)=\int\!d\btheta~W(\btheta)^n
+ %\end{equation}
+% and assuming that the
+%underlying power spectrum is not a rapidly varying function within the
+%survey window,
+
+\subsection{Covariance matrix of the stacked lensing power spectrum}
+
+Now we consider the covariance matrix of the projected power spectrum of
+stacked lensing, which can be defined in terms of the power spectrum
+estimator (Eq.~\ref{eq:e_chm}) as
+%
+\begin{equation}
+ C_{ij}\equiv
+  \ave{\hchm(k_i)\hchm(k_j)}-\ave{\hchm(k_i)}\ave{\hchm(k_j)}.
+  \label{eq:def_cov}
+\end{equation}
+%
+By inserting the power spectrum estimator (Eq.~\ref{eq:e_chm}) and then
+computing the ensemble averages in the above equation, we will below
+derive an expression of the covariance matrix. 
+
+First of all, we have to bear in mind that
+%the overall normalization of
+the stacked lensing estimator depends on the local mean of the projected
+halo number density (Eq.~\ref{eq:hNh}): 
+%
+\begin{equation}
+ \hchm\propto
+  \frac{1}{\hNh}\simeq \frac{1}{\bNh}\left(1-\Delta^{\rm h}_{\br}\right),
+\label{eq:def_Deltahb}
+\end{equation}
+%
+where
+$\Delta_{\br}^{\rm h}\equiv
+(1/\bNh)\int\!\!\dr\chi~\bnhs\bar{b}^S\deltab$.
+The background density mode $\deltab$ is a statistical variable, varies
+with a survey window, and therefore contributes the sample variance. 
+
+If we conceptually express the power spectrum estimator as
+$\hchm(k_i)\propto (1-\Delta^{\rm h}_{\br})(\hat{h}\hat{\kappa})_{k_i}$,
+where we denote the estimators of the halo field and the lensing field
+as $\hat{h}$ and $\hat{\kappa}$, the covariance can be expressed by a
+sum of three contributions as
+%
+\begin{eqnarray}
+ {\bf C}&\rightarrow& \ave{(1-\Delta^{\rm h}_{\br})^2(\hat{h}\hat{\kappa})_{k_i}(\hat{h}\hat{\kappa})_{k_j}
+  }-\ave{(\hat{h}\hat{\kappa})_{k_i}}\ave{(\hat{h}\hat{\kappa})_{k_j}}
+%  \nonumber\\
+% &&
+  =\ave{\hat{h}_{k_i}\hat{\kappa}_{k_j}}\ave{\hat{\kappa}_{k_i}\hat{h}_{k_j}}
+  +\ave{\hat{h}_{k_i}\hat{h}_{k_j}}\ave{\hat{\kappa}_{k_i}\hat{\kappa}_{k_j}}
+  +\ave{(1-\Delta_{\br}^{\rm h})^2
+  (\hat{h}\hat{\kappa})_{k_i}(\hat{h}\hat{\kappa})_{k_j}}_c.
+  \label{eq:cov_formal}
+\end{eqnarray}
+%
+The first two terms are from products of the power spectra,
+$\ave{\hat{h}\hat{\kappa}}$, $\ave{\hat{h}\hat{h}}$ and
+$\ave{\hat{\kappa}\hat{\kappa}}$, which we call the Gaussian covariance
+term. The third term arises from the 4-point correlation function or the
+trispectrum in the Fourier space, which we call the non-Gasussian term.
+If the halo and lensing fields are both Gaussian, e.g. at linear scales,
+the non-Gaussian term is vanishing. We generalized the non-Gaussian term
+in that it includes the contribution from the modulation in the
+projected halo number density. 
+
+Hence, following the method in Ref.~\cite{TakadaHu:13}, the covariance
+matrix can be generally expressed as
+%by a sum of the three terms:
+%
+\begin{equation}
+ {\bf C}={\bf C}^{\rm Gauss}+{\bf C}^{T_0}+{\bf C}^{\rm SSC}, 
+\end{equation}
+%
+where we have considered modes satisfying $k_i,k_j\gg
+1/(\chi\Omega_{S}^{1/2})$ ($\chi$ is in the range of lens
+redshifts). The first term is the Gaussian term as we stated above, the
+second term is the non-Gaussian term arising from the trispectrum of
+sub-survey modes, and the third term is the super-sample covariance
+arising from super-survey modes expressed in terms of $\deltab$ in our
+formulation.
+
+\subsubsection{Gaussian covariance}
+
+Extending the formulation in Ref.~\cite{OguriTakada:11} to include the
+redshift weight $\sigmacr(\chi)$ in the estimator (Eq.~\ref{eq:e_chm}),
+we can derive the Gaussian covariance term corresponding to the first
+and second terms in the formal expression (Eq.~\ref{eq:cov_formal}):
+%
+\begin{equation}
+ C^{\rm Gauss}(k_i,k_j)=\frac{1}{N_{\rm
+  mode}(k_i)}\delta^K_{ij}\left[\chm(k_i)^2+C^{\sigmacr}_{\rm
+			   hh}(k_i)C^{\rm obs}_\kappa(k_i)\right],
+\label{eq:cov_g}
+\end{equation}
+%
+where $\delta^K_{ij}$ is the Kronecker delta function; $\delta^K_{ij}=1$
+if $k_i=k_j$ to withing the bin width, otherwise $\delta^K_{ij}=0$. The
+number of independent $k$-modes resolved in the shell, by a resolution
+of Fourier decomposition of a finite-area survey, is given as
+%
+\begin{equation}
+N_{\rm mode}(k_i)\simeq \frac{2\pi k_i \Delta k~ S_{\rm
+ eff}}{(2\pi)^2}=\frac{k_i\Delta k~ \ave{\chi_L^2}\Omega_S}{2\pi}, 
+\end{equation}
+%
+where $S_{\rm eff}$ is the effective survey area in dimension of $[{\rm
+Mpc}^2]$, and $\ave{\chi_L^2}$ is the radial distance to lensing halos,
+averaged over the radial selection function: $\ave{\chi_L^2}\equiv
+\int\!\!\dr\chi~f_{\rm h}(\chi;z_L)\chi^2/\int\!\!\dr\chi~f_{\rm
+h}(\chi;z_L)$. The spectrum $\chh^{\sigmacr}(k)$ is the projected
+auto-spectrum of halos including the lensing kernel weight
+$\sigmacr(\chi)$ at each lens redshift (see Eq.~\ref{eq:e_dsigma} or
+\ref{eq:e_chm}) as well as the shot noise contamination arising from a
+finite number of lensing halos used in the stacked lensing measurement,
+while $C_\kappa^{\rm obs}(k)$ is the cosmic shear power spectrum
+including the intrinsic shape noise contamination arising from a finite
+number of source galaxies. These spectra are given as
+%
+\begin{eqnarray}
+\chh^{\sigmacr}&=&\frac{1}{\bNh(z_L)^2}\int\!\!\dr\chi~f_{\rm
+ h}(\chi)^2\sigmacr(\chi)^2
+ [\bnhs\bar{b}^S]^2\pml(k;\chi) +
+ \frac{1}{\bNh(z_L)^2}\int\!\!\dr\chi~f_{\rm
+ h}(\chi)\sigmacr(\chi)^2\bnhs,\nonumber\\
+ C_\kappa^{\rm obs}(k)&=&\int\!\!\dr\chi~f_\kappa^2P^{\rm
+  NL}_m(k;\chi)+\frac{\sigma_\epsilon^2}{\bar{N}_{\rm sg}},
+\end{eqnarray}
+%
+where $\sigma_\epsilon$ is the rms intrinsic ellipticity per component
+\cite{TakadaJain:03}. $\bar{N}_{\rm sg}$ is the mean number density of
+source galaxies, used for the weak lensing measurements, per unit area
+in dimension of $[{\rm Mpc}^{-2}]$, which is given in terms of the
+angular source density as $\bar{N}_{\rm sg}=\bar{n}_{\rm
+gs}/\ave{\chi_L^2}$, where $\bar{n}_{\rm sg}$ is the mean angular number
+density of source galaxies per unit solid steradian as often used in the
+literature.  The piece $C_\kappa^{\rm obs}(k)$ in Eq.~(\ref{eq:cov_g})
+describes that the mass distribution along the line-of-sight contributes
+statistical errors to the stacked lensing, as can be found from
+Eq.~(\ref{eq:kappa_concept}).  The above formula of the Gaussian term is
+new in a sense that the covariance is for the stacked lensing in
+dimension of the surface mass density, $\ave{\dsigma}(R)$, while the
+literature usually studied the angular power spectrum.
+
+The Kronecker delta function in Eq.~(\ref{eq:cov_g}) ensures that the
+Gaussian term contributes only the diagonal terms of the covariance
+matrix. The covariance term scales with the survey area as $C^{\rm
+Gauss}\propto 1/\Omega_S$.
+
+
+\subsubsection{Non-Gaussian covariance: the trispectrum consistency and
+   super-sample covariance}
+
+Now we consider the non-Gaussian term of the stacked lensing
+covariance. As we stated above, we need to include the contributions of
+connected 4-point function and the modulation in the projected number
+density of lensing halos due to super-survey modes, $\Delta_\br^{\rm h}$
+(Eqs.~\ref{eq:def_Deltahb} and \ref{eq:cov_formal}).
+
+To derive different contributions to the non-Gaussian covariance in an
+efficient way, we follow the formulation used in
+Refs.~\cite{TakadaHu:13,Lietal:14a}. For that purpose, let us consider
+the contribution from the connected 4-point function, by inserting the
+estimator (Eq.~\ref{eq:e_chm}) into the covariance definition
+(Eq.~\ref{eq:def_cov}):
+%
+\begin{eqnarray}
+ \ave{(\hat{h}\hat{\kappa})_{k_i}(\hat{h}\hat{\kappa})_{k_j}}&\leftarrow&
+  \frac{\bar{\rho}_{\rm m0}^2}{\bNh(z_L)^2}\int\!\!\dr\chi~f_{\rm h}(\chi)^2
+  \int\!\!\dr M_1\int\!\!\dr M_2\frac{\dr n}{\dr M_1}S(M_1)\frac{\dr
+  n}{\dr M_2}(M_2)\nonumber\\
+ &&\hspace{4em}\times
+  \frac{1}{(\chi^2\Omega_S)^2}\int\!\!\frac{\dr^2\bq}{(2\pi)}|\tW(\bq)|^2
+  \int_{|\bk|\in k_i}\!\!\frac{\dr^2\bk}{A(k_i)}
+  \int_{|\bk'|\in k_j}\!\!\frac{\dr^2\bk'}{A(k_j)}
+  T_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq;M_1,M_2,\chi),
+  \label{eq:cov_t}
+\end{eqnarray}
+%
+where we have used the Limber's approximation and $T_{\rm hmhm}$ is the
+3D trispectrum at redshift $z=z(\chi)$ for the two matter fields and the
+two fields of halos with their masses $M_1$ and $M_2$, defined as
+%
+\begin{equation}
+\ave{\delta_{\rm h}(\bk_1;M_1)\deltam(\bk_2)\delta_{\rm
+ h}(\bk_3;M_2)\deltam(\bk_4)}
+ \equiv (2\pi)^3\delta_D^3(\bk_{1234})T_{\rm
+ hmhm}(\bk_1,\bk_2,\bk_3,\bk_4; M_1,M_2)
+\end{equation}
+%
+The convolution with the window function in Eq.~(\ref{eq:cov_t}) means
+that different 4-point configurations separated by less than the Fourier
+width of the window function and involving contributions from
+super-survey modes contribute to the non-Gaussian covariances. 
+
+For squeezed configurations with $k,k'\gg q$, using the halo model
+approach, we can express the change in the trispectrum due to the long
+wavelength $q$-mode to leading order in $q/k$ as
+%
+\begin{equation}
+ T_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)\equiv T_{\rm
+  hmhm}(\bk,-\bk,\bk',-\bk')
+  +\delta T(\bk,\bk',q)
+  \label{eq:def_dT}
+\end{equation}
+%
+Inserting the first term of the above equation into the covariance
+calculation gives the non-Gaussian term arising from the trispectrum of
+sub-survey modes:
+%
+\begin{eqnarray}
+ C^{T0}(k_i,k_j)&\equiv &\frac{\bar{\rho}_{\rm m0}^2}{\bNh(z_L)^2}
+  \int\!\!\dr\chi~f_{\rm h}(\chi)^2 \bnhs(\chi)^2\frac{1}{\chi^2\Omega_S}
+    \bar{T}_{\rm
+    hmhm}(k_i,k_j;\chi)
+    \label{eq:cov_T0}
+\end{eqnarray}
+%
+with
+%
+\begin{equation}
+\bar{T}_{\rm hmhm}(k_i,k_j)=\frac{1}{(\bnhs)^2}\int\!\!\dr
+ M_1\int\!\!\dr M_2~\frac{\dr n}{\dr M_1}S(M_1)\frac{\dr n}{\dr
+ M_2}S(M_2)
+ \int^{2\pi}_0\!\!\frac{\dr\phi_{\bk\cdot\bk'}}{2\pi}T_{\rm hmhm}(\bk,-\bk,\bk',-\bk'),
+\end{equation}
+%
+where we have used
+$(1/\chi^2\Omega_s)\int\!\!\dr^2\bq/(2\pi)^2|\tW(\bq)|^2=1$, assumed
+that the trispectrum is not a rapidly varying function within the
+$k,k'$-bin width, and $\phi_{\bk\cdot\bk'}$ is the angle between the
+vectors $\bk$ and $\bk'$ in the 2D plane (perpendicular to the line of
+sight direction). $C^{T0}$ scales with the survey area as $C^{T0}\propto
+1/\Omega_S$ as the Gaussian covariance term does.  In Appendix~XXX we
+show expressions from 1 to 4-halo trispectrum terms. 
+%employ the halo model to derive expressions for $C^{T0}_{ij}$.
+
+
+Now we consider the super-sample covariance (SSC) arising from $\delta
+T$ in Eq.~(\ref{eq:def_dT}). In doing this we use the halo model that
+describes the halo-matter trispectrum involving one to four halos:
+%
+\begin{equation}
+ \delta T^S_{\rm hmhm}
+  \equiv \frac{1}{(\bnhs)^2}\int\!\!\dr M_1\int\!\!\dr
+  M_2\frac{\dr n}{\dr M_1} S(M_1)\frac{\dr n}{\dr M_2}S(M_2)
+  \left[
+   T_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq) -
+      T_{\rm hmhm}(\bk,-\bk,\bk',-\bk')
+	   \right],
+  \label{eq:def_barT}
+\end{equation}
+%
+with
+%
+\begin{eqnarray}
+ &&\delta T^{S,{\rm 1h}}_{\rm hmhm}\approx 0,\nonumber\\
+ &&\delta T^{S, {\rm 2h}}_{\rm
+  hmhm}\approx \pml(q){\cal I}^{1}_1(k){\cal I}^{1}_1(k'),\nonumber\\
+ &&\delta T^{S,{\rm 3h(13)}}_{\rm hmhm}\approx 0,\nonumber\\
+ &&\delta T^{S, {\rm 3h(22)}}_{\rm hmhm}\approx 2\pml(q)
+\left[{\cal I}^{1}_1(k'){\cal
+ F}(\bk,\bq)+{\cal I}^{1}_1(k){\cal F}(\bk',-\bq)\right],\nonumber\\
+ &&\delta T^{S, {\rm 4h}}_{\rm hmhm}\approx4\pml(q){\cal
+  F}(\bk,\bq){\cal F}(\bk',-\bq),
+\end{eqnarray}
+%
+where
+%
+\begin{equation}
+{\cal F}(\bk,\bq)\equiv
+ \left[\pml(k)F_2(\bq,-\bk)+\pml(|\bk-\bq|)F_2(\bq,\bk-\bq)\right]\bar{b}^S{\cal
+ I}^{1}_1(|\bk-\bq|).
+\end{equation}
+%
+Here the mode-coupling kernel $F_2$ is
+%
+\begin{equation}
+ F_2(\bk,\bq)\equiv \frac{5}{7}+\frac{1}{2}\left(\frac{1}{k^2}+\frac{1}{q^2}\right)
+  (\bk\cdot\bq)+\frac{2}{7}\frac{(\bk\cdot\bq)^2}{k^2q^2}.
+\end{equation}
+%
+Taking into account the fact that the mode coupling factor $F_2$ has a
+pole when one of its arguments goes to zero, the integration of ${\cal
+F}$ over the direction of $\bk$ is
+%
+\begin{equation}
+ \int_0^{2\pi}\!\!\frac{\dr\phi_\bk}{2\pi}~{\cal F}(\bk,\bq)\simeq
+  \frac{1}{2}
+  \left(\frac{24}{7}-\frac{1}{2}\frac{d\ln k^2P^{S, {\rm 2h}}_{\rm hm}}{d\ln
+   k}\right) P^{S,{\rm 2h}}_{\rm hm}(k)
+  \label{eq:def_F}
+\end{equation}
+%
+where we have defined $P^{S,{\rm 2h}}_{\rm hm}(k)=\bar {b}^S\pml(k)$.
+
+
+Following the trispectrum consistency relation introduced in
+Ref.~\cite{TakadaHu:13}, we can realize that the the SSC term in the
+squeezed trispectrum arises from the response of the power spectrum to
+change in the background density by a factor of $(1+\deltab)$.
+Inserting Eq.~(\ref{eq:def_F}) into Eq.~(\ref{eq:def_barT}), we can
+rewrite the SSC term as 
+%
+\begin{eqnarray}
+&& \int_0^{2\pi}\!\!\frac{\dr\phi_\bk}{2\pi}
+\int_0^{2\pi}\!\!\frac{\dr\phi_{\bk'}}{2\pi}\delta T^S_{\rm hmhm}
+ \approx
+\pml(q)\frac{\partial \phm^S(k)}{\partial \deltab}\frac{\partial \phm^S(k')}{\partial \deltab}
+\end{eqnarray}
+%
+where we have defined the response of the halo-matter power spectrum to
+the background density:
+%
+\begin{equation}
+ \frac{\partial \phm^S(k)}{\partial \deltab}\equiv 
+  \left(\frac{24}{7}-\frac{1}{2}\frac{\dr\ln k^2\phm^{S,{\rm
+   2h}}(k)}{\dr \ln k}\right)\phm^{S,{\rm 2h}}(k) + {\cal I}^1_1(k).
+\end{equation}
+%
+Comparing the above equation with Eq.~(27) in Ref.~\cite{Lietal:14a},
+which is the response of the 3D mass power spectrum, the differences,
+$24/7$ instead of $68/21$ and $(1/2)\dr\ln k^2P(k)/\dr \ln k$ instead of
+$(1/3)\dr\ln k^3P(k)/\dr \ln k$, are due to the fact that we consider
+the projected power spectrum and the super-survey mode of $\bq$ in the
+2D plan perpendicular to the line-of-sight direction; that is, we
+ignored the radial mode.  The $24/7$ piece is called the beat coupling
+(``BC'') effect \cite{Hamiltonetal:06,TakadaJain:09} that the growth of
+a short wavelength perturbation is enhanced in a large scale
+overdensity, the ${\cal I}^1_1$ term is the halo sample variance
+(``HSV'') effect \cite{TakadaBridle:07,Satoetal:09} that halo number
+densities are also enhanced in such a region, and the derivative term is
+the linear dilation (``LD'') effect. The dilation effect occurs because
+the long wavelength mode changes the local expansion factor and hence
+the physical size of a mode that would have comoving wavelength $k$ in
+its absence.
+
+
+Furthermore, including a modulation in the projected number density
+halos, $\hNh$ (Eq.~\ref{eq:def_Deltahb}), we can realize that the
+background mode $\deltab$ causes a modulation in the power spectrum
+estimator of stacked lensing, to the linear order of $\deltab$:
+%
+\begin{equation}
+ \left.\delta\hchm(k)\right|_{\deltab}=
+  \frac{\bar{\rho}_{\rm m0}}{\bNh(z_L)}\int\!\!\dr\chi~f_{\rm h}(\chi)\bnhs
+  \frac{\partial \phm^S(k)}{\partial
+  \deltab}\deltab-\frac{\chm(k)}{\bNh(z_L)}\int\!\!\dr\chi~f_{\rm h}(\chi)\bnhs\bar{b}^S\deltab.
+\label{eq:dchm_ddb}
+\end{equation}
+%
+For a thin redshift slice of lensing halos, where $f_{\rm h}=1$ in the
+range $\chi=[\chi_L-\Delta\chi/2,\chi_L+\Delta\chi/2]$ and otherwise
+$f_{\rm h}=0$, the power spectrum response can be simplified as
+%
+\begin{eqnarray}
+ \left.\delta\hchm(k)\right|_{\deltab}&\simeq& \bar{\rho}_{\rm m0}
+  \left[\left(\frac{24}{7}-\frac{1}{2}\frac{\dr\ln k^2\phm^{S,{\rm
+	 2h}}}{\dr \ln k}\right)\phm^{S,{\rm 2h}}+{\cal
+  I}^1_1-\bar{b}^S\phm^S(k)\right]\deltab(\chi_L)\nonumber\\
+  &=&\bar{\rho}_{\rm m0}\frac{\partial }{\partial \deltab}
+  \left[\frac{1}{\hnh^S(\chi_L)}\int\!\!\dr M~\bnh S(M)\phm(k;M,\chi_L)
+  \right]\deltab(\chi_L),
+\end{eqnarray}
+%
+where $\hnh^S\equiv \int\!\!\dr M~(\dr n/\dr M)S(M)\left[1+b(M)\deltab\right]$, the
+3D number density of halos including the background density modulation.
+This corresponds to a reqsponse of the power spectrum estimator using
+the local mean density as discussed in Refs.~\cite{TakadaHu:13,Lietal:14a}.
+
+Hence, using Eq.~(\ref{eq:dchm_ddb}) and the Limber's approximation, we
+can compute the SSC term of the non-Gaussian covariance as
+%
+\begin{eqnarray}
+ C^{\rm SSC}(k_i,k_j)&\equiv&
+  \ave{\left.\delta\hchm(k_i)\right|_{\deltab}
+  \left.\delta\hchm(k_j)\right|_{\deltab}}\nonumber\\
+  &\simeq &\frac{1}{\bNh(z_L)^2}
+  \int\!\!\dr\chi~f_{\rm h}(\chi)^2(\bnhs)^2\left[
+  \bar{\rho}_{\rm m0}^2\frac{\partial \phm^S(k_i)}{\partial \deltab}
+  \frac{\partial \phm^S(k_j)}{\partial \deltab}
+  -\bar{\rho}_{\rm m0}\bar{b}^S
+  \chm(k_i)\frac{\partial \phm^S(k_j)}{\partial
+  \deltab}\right.\nonumber\\
+ &&\hspace{8em}\left.
+-\bar{\rho}_{\rm m0}\bar{b}^S\chm(k_j)\frac{\partial \phm^S(k_i)}{\partial \deltab}
++(\bar{b}^S)^2\chm(k_i)\chm(k_j)
+		\right]\frac{1}{(\chi^2\Omega_S)^2}\int\!\!\frac{\dr^2\bq}{(2\pi)^2}|\tW(\bq)|^2\pml(q;\chi).
+\label{eq:cov_ssc}
+\end{eqnarray}
+%
+Compared to the results in Refs.~\cite{TakadaHu:13,Lietal:14a}, the SSC
+arises from a line-of-sight integration of the variance of the
+background mode, weighted by the halo-mass power spectrum.
+
+Henec we will use Eqs.~(\ref{eq:cov_g}), (\ref{eq:cov_T0}), and
+(\ref{eq:cov_ssc}) to compute the full covariance matrix to compare with
+the simulations. 
+
+\subsection{Super sample signal}
+
+We have so far considered the impact of super-survey modes on the
+stacked lensing observables as an additional statistical noise in the
+covariacne matrix. In a given realization of the survey volume, the
+super-survey effect systematically changes the stacked lensing power
+spectrum of sub-survey modes just like a comsmological parameter, as
+implied by Eq.~(\ref{eq:dchm_ddb}):
+%
+\begin{equation}
+ \hat{{\cal C}}_{\rm hm}(k_i;\deltab)=\hat{{\cal C}}_{\rm
+  hm}(k_i;0)+\left.\delta \hchm(k_i)\right|_{\deltab}A^{\rm
+  SSC}(\deltab),
+\end{equation}
+%
+where $A^{\rm SSC}(\deltab)$ is a parameter to model the shift in the
+power spectrum due to the super-survey mode.  As pointed out in
+Ref.~\cite{Lietal:14b} \cite[see also][]{MohammedSeljak:14}, the
+additive model of the super-survey effect can be realized as an
+additional signal rather than the noise; the parameter $A^{\rm SSC}$ can
+be estimated together with cosmological parameters from the measured
+power spectrum in the survey region. In this case, we need not include
+the super-survey covariance contribution in the covariance matrix when
+estimating parameters: ${\bf C}={\bf C}^{\rm Gauss}+{\bf C}^{T_0}$. This
+would simplify the anlysis, and can also open up a new window of
+extracting the largest-scale density mode from the measured stacked
+lensing. For example, if we can find a super-survey mode that is too
+large compared to the $\Lambda$CDM model expectation, say more than
+3$\sigma$, it can be a new signature beyond the standard $\Lambda$CDM
+model on largest scales that contain a cleaner information on the
+physics of the early universe such as inflation.
+
+
+\section{Results}
+
+In this section we use the halo model to esitmate each contribution in
+the covariance matrix of stacked lenisng for $\Lambda$CDM model, and
+then compare the hlao model prediction with the ray-tracing simulations.
+
+
+\subsection{Cosmological model}
+
+We employ the flat $\Lambda$CDM model that is consistent with the Planck
+measurements \cite{PlanckCosmo} as the fiducial model. More specifically
+the Planck cosmology is specified by $w_b=0.02225$, $w_{\rm
+cdm}=0.1198$, $\ln(10^{10}A_s)=3.094$, $n_s=0.9645$, $H_0=67.27~{\rm
+km/s/Mpc}$, $\Omega_{\rm m0}=0.3156$ ($\Omega_{\Lambda}=0.6844$), and
+$\sigma_8=0.831$.
+
+%PLANCK2015 paper XIII Table 3 [4]
+%Obh^2 = 0.02225
+%Och^2 = 0.1198
+%100 theta_MC = 1.04077
+%tau = 0.079
+%ln(10^10A_s) = 3.094
+%n_s = 0.9645
+%H_0 = 67.27
+%Om = 0.3156
+%sigma_8 = 0.831
+%10^9A_s e^(-2tau) = 1.882
+%We simulate the fiducial $\Lambda$CDM cosmology specified in Tab.~\ref{tab:par}. 
+%Each pair of separate universe simulations have the same realizations of the initial Gaussian
+%random density field, in order to reduce the sample variance in the change of the mass function.
+
+
+
+\section{Discussion}
+
+%\bigskip
+
+\smallskip{\em Acknowledgments.--} We thank Wayne Hu, Yin Li and Surhud
+More for useful discussion. MT is supported in part by Grant-in-Aid for
+Scientific Research from the JSPS Promotion of Science (No. 23340061 and
+26610058), MEXT Grant-in-Aid for Scientific Research on Innovative Areas
+(No.~15H05893 and and 15K21733) and by JSPS Program for Advancing Strategic International
+Networks to Accelerate the Circulation of Talented Researchers.
+
+
+
+\bibliography{sss_Phm}
+
+\appendix
+
+\section{Projected auto-correlation function of halos}
+
+The projected number density fluctuation field of halos is
+%
+\begin{equation}
+ \hdNh(\bx_\perp)\equiv
+  \int\!\dr\chi~f_\bh(\chi;z_L)
+  \int\!\dr M~S(M)\bnh
+  W(\bx_\perp)\deltah(\chi,\bx_\perp; M).
+\end{equation}
+%
+The Fourier transform is
+%
+\begin{equation}
+ \tdsigmah(\bk_\perp)\equiv \int\!\dr^2\bx_\perp~ \hdNh(\bx_\perp)e^{-i\bk_\perp\cdot\bx_\perp}
+  =\int\!\dr\chi~f_\bh(\chi;z_L)\int\!\dr M~\bnh S(M)\int\!\frac{\dr k_\parallel}{2\pi}
+  \tdeltah^W\!(k_\parallel,\bk_\perp)e^{ik_\parallel\chi}
+\end{equation}
+%
+where 
+%
+\begin{equation}
+  \tdeltah^W\!(k_\parallel,\bk_\perp)\equiv 
+  \int\!\frac{\dr^2\bq}{(2\pi)^2}\tW(\bq)
+  \tdeltah(k_\parallel,\bk_\perp-\bq),
+\end{equation}
+%
+$\tW(\bq;\chi)\equiv
+\int\!\dr^2\bx_\perp~W(\bx)e^{-i\bq\cdot\bx_\perp}$, and
+quantities with tilde symbol hereafter denote their Fourier
+transforms.
+
+An estimator of the projected power spectrum of halos can be defined as
+%
+\begin{eqnarray}
+\hchh(k_{\perp,i})\equiv
+ \frac{1}{\hNh(z_L)^2}\int\!\dr\chi\int\!\dr\chi'
+ f_\bh(\chi)f_\bh(\chi')
+ \int\!\dr M\int\!\dr M'~S(M)\bnh S(M')\bnhd\nonumber\\
+ \times
+\frac{1}{\chi^2\Omega_S}\int_{|\bk_\perp|\in k_{\perp i}}\!\frac{\dr^2\bk_{\perp}}{A(k_{\perp
+i})}\int\!\frac{\dr k_\parallel}{2\pi}\int\!\frac{\dr k'_{\parallel}}{2\pi}
+~\tdeltah^W\!(k_\parallel,\bk_\perp)\tdeltah^W\!(k'_\parallel,-\bk_\perp)
+e^{ik_\parallel\chi+ik'_\parallel\chi'},
+\label{eq:e_chh}
+\end{eqnarray}
+%
+where the integral $\int\!\!\dr^2\bk_\perp$ is over an annulus in
+$\bk_\perp$ space of width $\Delta k$, and the area $A(k_{\perp
+i})\simeq 2\pi k_{\perp i}\Delta k$.  Using the halo power spectrum
+definition,
+%
+\begin{equation}
+ \ave{\deltah(k_\parallel,\bk_\perp;M)\deltah(k'_\parallel,\bk'_{\perp};M')}=(2\pi)^3
+  \delta_D(k_\parallel+k'_\parallel)\delta_D^2(\bk_\perp+\bk'_\perp)\phh(k;M,M'), 
+\end{equation}
+%
+and using the Limber's approximation \cite{Limber:54},
+we can compute the ensemble
+average of the above power spectrum estimator:
+%
+\begin{eqnarray}
+\chh(k_i)=\ave{\hchh}(k_{\perp, i})&=&
+   \frac{1}{\hNh(z_L)^2}\int\!\dr\chi\int\!\dr\chi'
+ f_\bh(\chi)f_\bh(\chi')
+ \int\!\dr M\int\!\dr M'~S(M)\bnh S(M')\bnhd\nonumber\\
+&&\hspace{4em} \times
+\frac{1}{\chi^2\Omega_S}\int\!\frac{\dr^2\bk_{\perp}}{A(k_{\perp
+i})}\int\!\frac{\dr^2\bq}{(2\pi)^2}
+%~\tdeltam^W(k_\parallel,\bk_\perp)\tdeltam^W(-k_\parallel,-\bk_\perp)
+\phh\left(\sqrt{k_\parallel^2+|\bk_\perp-\bq|^2}\right)
+|\tW(\bq)|^2e^{ik_\parallel(\chi-\chi')}
+\nonumber\\
+ &\simeq&\frac{1}{\bNh(z_L)^2}\int\!\dr\chi
+  f_\bh(\chi)^2\int\!\dr M\int\!\dr M'~S(M)\bnh S(M')\bnhd
+  \phh(k_{\perp,i},\chi;M,M')
+  \frac{1}{\chi^2\Omega_S}\int\!\frac{\dr^2\bq}{(2\pi)^2}|\tW(\bq)|^2
+\nonumber\\
+ &=&\frac{1}{\bNh(z_L)^2}\int\!\dr\chi
+  f_\bh(\chi)^2\int\!\dr M\int\!\dr M'~S(M)\bnh S(M')\bnhd
+  \phh(k_{\perp,i},\chi; M, M').
+  \label{eq:ave_hchh}
+\end{eqnarray}
+%
+Here we have considered Fourier modes of $k_\perp$ staisfying $k_\perp \gg
+q$, and then assumed no correlation between Fourider modes of $k_\perp$
+and $\deltab$.
+ We have used that $\phh(|\bk_\perp-\bq|)\simeq \phh(k_\perp)$ over
+the integration range of $\dr^2\bq$ which the window function supports
+and also assumed that $\phh(k)$ is not a rapidly varying function within
+the $k_\perp$-bin. Here and hereafter we will often
+omit ``$_{\perp}$'' in $k_{\perp}$ for notational simplicity.
+In the
+third equality on the r.h.s., we used the general identity for the
+window function:
+%
+\begin{equation}
+ \chi^2\Omega_S=\int\!\dr^2\bx_\perp~ W(\bx_\perp)^n=
+  \int\!\!\left[\prod_{a=1}^n\frac{d\bq_a}{(2\pi)^2}\tW(\bq_a)\right](2\pi)^2
+  \delta_D^2(\bq_{1\dots n}),
+\end{equation}
+%
+where $\bq_{1\dots n}\equiv \bq_1+\bq_2+\cdots+\bq_n$. For $n=2$,
+$\chi^2\Omega_S=\Omega_S\int\!\dr^2\bq/(2\pi)^2 ~ |\tW(\bq)|^2$.
+%the identity
+%$\int\!\dr^2\bq/(2\pi)^2~|\tW(\bq)|^2=\chi^2 \Omega_s$, derived from the fact
+%$\int\!\dr^2\bx_\perp~ W(\btheta)^n=\chi^2\Omega_S$ with
+%$\bx_\perp=\chi\btheta$.
+%
+%\begin{equation}
+%\Omega_S=\int\!d\btheta~W(\btheta)=\int\!d\btheta~W(\btheta)^n
+%\end{equation}
+
+ 
+If we employ the halo model, where the halo power spectrum is modeled as
+$\phh(k; M, M')\simeq b(M)b(M')\pml(k)$, the projected power spectrum is
+rewritten as
+%
+\begin{equation}
+ \chh(k)=\frac{1}{\bNh(z_L)^2}\int\!\dr\chi
+  f_\bh(\chi)^2 \left[\bnhs\bar{b}^S\right]^2
+  \pml(k;\chi),
+ % \left[\int\!\!\dr M~\bnh S(M)b(M)\right]^2
+ % \pml(k;\chi)
+\end{equation}
+%
+where $\pml(k)$ is the linear mass power spectrum. The projected power
+spectrum $\chh$ has a dimension of $[{\rm Mpc}^2]$.
+
+
+\section{An estimator of the stacked lensing profile}
+
+
+\begin{eqnarray}
+ w_{\mathrm{hh}}(R;z_L)&=&\ave{\delta^{\rm 2D}_\bh(\bx_\perp;z_L)
+  \delta^{\rm 2D}_\bh(\bx'_\perp;z_L)
+  }_{R=|\bx_\perp-\bx'_\perp|}\nonumber\\
+ &=&\frac{1}{\bar{N}_\bh(z_L)^2}\int\!\dr\chi \chi^2
+  \int\!\dr\chi \chi^{\prime 2}
+  \int\!\dr M\frac{\dr n}{\dr M}S(M, \chi; z_L)
+  \int\!\dr M'\frac{\dr n}{\dr M'}S(M',\chi'; z_L)\nonumber\\
+  &&\hspace{2em}\times
+  \int\!\frac{\dr k_\parallel \dr^2\bk_\perp}{(2\pi)^3}
+  \int\!\frac{\dr k'_\parallel \dr^2\bk'_\perp}{(2\pi)^3}
+  \ave{\deltah(\bk;\chi, M)\deltah(\bk';\chi', M')
+  }e^{i(\chi k_\parallel+\bx_\perp\cdot\bk_\perp)
+  +i(\chi'k'_\parallel+\bx'_\perp\cdot\bk'_\perp)}\nonumber\\
+ &=&\frac{1}{\bar{N}_\bh(z_L)^2}\int\!\dr\chi \chi^2
+  \int\!\dr\chi \chi^{\prime 2}
+  \int\!\dr M\frac{\dr n}{\dr M}S(M, \chi; z_L)
+  \int\!\dr M'\frac{\dr n}{\dr M'}S(M',\chi'; z_L)\nonumber\\
+  &&\hspace{4em}\times
+  \int\!\frac{\dr k_\parallel \dr^2\bk_\perp}{(2\pi)^3}
+  \phh(k;M,M')
+  e^{ik_\parallel(\chi-\chi')+i\bk_\perp\cdot{\bf R}}\nonumber\\
+ &\simeq& \frac{1}{\bar{N}_\bh(z_L)^2}\int\!\dr\chi \chi^4
+  \int\!\dr M\int\!\dr M'~\frac{\dr n}{\dr M}S(M, \chi; z_L)
+  \frac{\dr n}{\dr M'}S(M',\chi'; z_L)
+\int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+\phh(k_\perp;M,M',z)
+  e^{i\bk_\perp\cdot{\bf R}}\nonumber\\
+ &\simeq& \frac{1}{\bar{N}_\bh(z_L)^2}\chi_L^4\Delta\chi
+  \int\!\dr M\int\!\dr M'~\frac{\dr n}{\dr M}S(M, \chi; z_L)
+  \frac{\dr n}{\dr M'}S(M',\chi'; z_L)
+\int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+\phh(k_\perp;M,M',z)
+e^{i\bk_\perp\cdot{\bf R}}
+%\nonumber\\
+% &=& \frac{1}{\bnh(z_L)^2\Delta\chi}
+%  \int\!\dr M\int\!\dr M'~\frac{\dr n}{\dr M}S(M, \chi; z_L)
+%  \frac{\dr n}{\dr M'}S(M',\chi'; z_L)
+%\int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+%\phh(k_\perp;M,M',z)
+%  e^{i\bk_\perp\cdot{\bf R}}\nonumber\\
+\end{eqnarray}
+
+
+
+Using the Limber's approximation, the ensemble average of the sacked
+lensing profile can be computed as
+%
+\begin{eqnarray}
+ \ave{\Sigma}(R)&\equiv&\ave{\sigmacr(\chi)\kappa^W(\btheta)}_{R=|\bx_\perp(z_l)-\chi(z_l)\btheta|}
+=\ave{\deltah(\bx_\perp)\sigmacr(\chi)\kappa^W(\bx'_\perp)}_{R=|\bx_\perp-\bx'_\perp|;\bx'=\chi\btheta}
+\nonumber\\
+  &=&
+  \frac{1}{\hNh(z_L)}\int\!\dr\chi \dr\chi'~\chi^2 f_\bh(\chi)\sigmacr(\chi)f_\kappa(\chi')
+  \int\!\dr M~\bnh S(M)b(M)W(\bx_\perp)\ave{\deltaml(\chi,\bx_\perp)\deltam^W(\chi',\chi'\btheta)}
+  \nonumber\\
+&=& \frac{1}{\hat{N}_\bh(z_L)}\int\!\dr\chi \dr\chi'~\chi^2\sigmacr(\chi)W_\kappa(\chi')
+ \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)\nonumber\\
+&&\hspace{6em}\times \int\!\frac{d^3\bk}{(2\pi)^3}\frac{d^3\bk'}{(2\pi)^3}
+\phm(k;M,\chi)(2\pi)^3\delta_D(k_\parallel+k'_\parallel)\delta_D^2(\bk_\perp+\bk'_\perp)
+e^{ik_\parallel\chi+i\bk_\perp\cdot\bx_\perp}
+e^{ik_\parallel\chi'+i\bk'_\perp\cdot\chi\btheta}
+  \nonumber\\ 
+&=& \frac{1}{\hat{N}_\bh(z_L)}\int\!\dr\chi \dr\chi'~\chi^2\sigmacr(\chi)W_\kappa(\chi')
+ \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+\int\!\frac{\dr k_\parallel \dr^2\bk_\perp}{(2\pi)^3}
+\phm(k;M,\chi)
+e^{ik_\parallel(\chi-\chi')+i\bk_\perp\cdot(\bx_\perp-\chi'\btheta)}
+  \nonumber\\ 
+&\simeq & \frac{1}{\hat{N}_\bh(z_L)}\int\!\dr\chi \dr\chi'~\chi^2\sigmacr(\chi)W_\kappa(\chi')
+ \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+\int\!\frac{\dr k_\parallel \dr^2\bk_\perp}{(2\pi)^3}
+\phm(k_\perp;M,\chi)
+e^{ik_\parallel(\chi-\chi')+i\bk_\perp\cdot(\bx_\perp-\chi'\btheta)}
+  \nonumber\\ 
+&= & \frac{1}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi ~\chi^2\sigmacr(\chi)W_\kappa(\chi)
+ \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)
+\int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+\phm(k_\perp;M,\chi)
+e^{i\bk_\perp\cdot(\bx_\perp-\chi\btheta)}
+\nonumber\\
+&=&\frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi ~\chi^2
+ \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)
+\int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+\phm(k_\perp;M,\chi)
+e^{i\bk_\perp\cdot(\bx_\perp-\chi\btheta)},
+\end{eqnarray}
+%
+where $\phm(k;M,z)$ is the halo-mass cross-power spectrum for halos of
+mass $M$ and at redshift $z$.
+%Thus cross-correlation of background
+%galaxy with foreground lens halos of known redsift arises from an
+%integration of the halo-mass cross-power spectrum at each lens
+%redshift.
+
+\section{Halo model for the non-Gaussian covariance term $C^{T0}$}
+
+\begin{equation}
+ C^{T0}(k_i,k_j)=\frac{\bar{\rho}_{\rm m0}^2}{\bNh(z_L)^2}
+  \int\!\!\dr\chi~f_{\rm h}(\chi)^2(\bnhs)^2\bar{T}_{\rm hmhm}(k_i,k_j),
+\end{equation}
+%
+\begin{equation}
+ T^S_{\rm hmhm}(\bk,\bk')=\frac{1}{(\bnhs)^2}
+  \int\!\!\dr M_1\int\!\!\dr M_2 \frac{\dr n}{\dr M_1}S(M_1)
+  \frac{\dr n}{\dr M_2}S(M_2)T_{\rm hmhm}(\bk,-\bk,\bk',-\bk')
+\end{equation}
+%
+\begin{equation}
+ T_{\rm hmhm}=\bar{T}_{\rm hmhm}^{\rm 1h}
+  +\left(\bar{T}_{\rm hmhm}^{\rm 2h(13)}
+    +\bar{T}_{\rm hmhm}^{\rm 2h(22)}
+	  \right)
+   +\bar{T}_{\rm hmhm}^{\rm 3h}
+   +\bar{T}_{\rm hmhm}^{\rm 4h}
+\end{equation}
+%
+\begin{eqnarray}
+ \bthmhm^{S, {\rm 1h}}(\bk,\bk')&=&{\cal I}^{4}_0(0,k,0,k')\nonumber\\
+% 1-(234) 2-(134) 3-(124) 4-(123)
+ \bthmhm^{S, {\rm 2h(13)}}(\bk,\bk')&=&\bar{b}^S{\cal
+ I}^1_{2}(k,k')\pml(k)
+ +I^1_1(k){\cal I}^1_1(k')\pml(k)
+ +\bar{b}^S{\cal I}^1_2(k,k')\pml(k')
+ +I^1_1(k'){\cal I}^1_1(k)\pml(k'),\nonumber\\
+%(12)(34) (13)(24) (14)(23)
+ \bthmhm^{S, {\rm 2h(22)}}(k_i,k_j)&=&\bar{b}^SI^1_2(k_i,k_j)\pml(|\bk+\bk'|)
+ +{\cal I}^1_1(k_i){\cal I}^1_1(k_j)\pml(|\bk-\bk'|)\nonumber\\
+ %(12)34 (13)24 (14)23 (23)14 (24)13 (34)12
+ \bthmhm^{S, {\rm 3h}}(\bk,\bk')&=&
+ \bar{b}^SI^1_1(k)I^1_1(k')B^{\rm PT}_{\rm m}(\bk+\bk',-\bk,-\bk')
+ +\bar{b}^S{\cal I}^1_1(k')I^1_1(k)B^{\rm PT}_{\rm m}(\bk-\bk',-\bk,\bk')\nonumber\\
+&& +\bar{b}^S{\cal I}^1_1(k)I^1_1(k')B^{\rm PT}_{\rm m}(-\bk+\bk',\bk,-\bk')
+ +\bar{b}^S{\cal I}^1_1(k)I^1_1(k')B^{\rm PT}_{\rm
+ m}(-\bk-\bk',\bk,\bk')\nonumber\\
+ \bthmhm^{S, {\rm 4h}}(\bk,\bk')&=&(\bar{b}^S)^2I^1_1(k)I^1_1(k')T^{\rm PT}_m(\bk,-\bk,\bk',-\bk')
+\end{eqnarray}
+\begin{equation}
+ \bar{T}_{\rm hmhm}=\bar{T}_{\rm hmhm}^{\rm 1h}
+  +\left(\bar{T}_{\rm hmhm}^{\rm 2h(13)}
+    +\bar{T}_{\rm hmhm}^{\rm 2h(22)}
+	  \right)
+   +\bar{T}_{\rm hmhm}^{\rm 3h}
+   +\bar{T}_{\rm hmhm}^{\rm 4h}
+\end{equation}
+%
+\begin{eqnarray}
+ \bthmhm^{\rm 1h}(\bk,\bk')&=&{\cal I}^{4}_0(0,k_i,0,k_j)\nonumber\\
+% 1-(234) 2-(134) 3-(124) 4-(123)
+ \bthmhm^{\rm 2h(13)}(k_i,k_j)&=&\bar{b}^S{\cal
+ I}^1_{3}(0,k_i,k_j)\pml(k_i)
+ +I^1_1(k_i){\cal I}^1_3(0,0,k_j)\pml(k_i)
+ +\bar{b}^S{\cal I}^1_3(0,k_i,k_j)\pml(k_j)
+ +I^1_1(k_j){\cal I}^1_3(0,0,k_i)\pml(k_j),\nonumber\\
+%(12)(34) (13)(24) (14)(23)
+ \bthmhm^{\rm 2h(22)}(k_i,k_j)&=&\bar{b}^SI^1_2(k_i,k_j)\pml(|\bk+\bk'|)
+ +{\cal I}^1_1(k_i){\cal I}^1_1(k_j)\pml(|\bk-\bk'|)\nonumber\\
+ %(12)34 (13)24 (14)23 (23)14 (24)13 (34)12
+ \bthmhm^{\rm 3h}(\bk,\bk')&=&
+ \bar{b}^SI^1_1(k)I^1_1(k')B^{\rm PT}_{\rm m}(\bk+\bk',-\bk,-\bk')
+ +\bar{b}^S{\cal I}^1_1(k')I^1_1(k)B^{\rm PT}_{\rm m}(\bk-\bk',-\bk,\bk')\nonumber\\
+&& +\bar{b}^S{\cal I}^1_1(k)I^1_1(k')B^{\rm PT}_{\rm m}(-\bk+\bk',\bk,-\bk')
+ +\bar{b}^S{\cal I}^1_1(k)I^1_1(k')B^{\rm PT}_{\rm
+ m}(-\bk-\bk',\bk,\bk')\nonumber\\
+ \bthmhm^{\rm 4h}(\bk,\bk')&=&(\bar{b}^S)^2I^1_1(k)I^1_1(k')T^{\rm PT}_m(\bk,-\bk,\bk',-\bk')
+\end{eqnarray}
+
+\begin{eqnarray}
+ \ave{\Sigma}(R;z_L)&\equiv&
+  \ave{\deltah(\bx_\perp;z_L)\sigmacr(z_L)\kappa(\btheta)}_{|\bx_\perp-\chi_L
+  \btheta|=R}\nonumber\\
+ &=&\frac{1}{\bar{N}_\bh(z_L)}\int\!\dr\chi~\chi^2\int\!\dr\chi'~f_\kappa(\chi)\sigmacr(\chi)
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+  \ave{\deltah(\chi,\bx_\perp;M)\deltam(\chi',\chi'\btheta)}\nonumber\\
+ &=&\frac{1}{\bar{N}_\bh(z_L)}\int\!\dr\chi~\chi^2\int\!\dr\chi'~f_\kappa(z)\sigmacr(\chi)
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)\nonumber\\
+ &&\hspace{4em}\times
+  \int\!\frac{\dr^2\bk_\perp \dr k_\parallel}{(2\pi)^3}
+  \int\!\frac{\dr^2\bk'_\perp \dr k'_\parallel}{(2\pi)^3}
+  \ave{\deltah(\bk;M)\deltam(\bk')}
+e^{i(\chi k_\parallel+\bk_\perp\cdot\bx_\perp)+i(\chi'k'_\parallel+\bk'_\perp\cdot\chi'\btheta)}
+\nonumber\\
+ &=&\frac{1}{\bar{N}_\bh(z_L)}\sigmacr(z_L)\int\!\dr\chi~\chi^2\int\!\dr\chi'~f_\kappa(z)
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+  \int\!\frac{\dr^2\bk_\perp \dr k_\parallel}{(2\pi)^3}
+\phm(k;M)
+e^{ik_\parallel(\chi-\chi')+i\bk_\perp\cdot(\bx_\perp-\chi'\btheta)}
+\nonumber\\
+ &\simeq&
+  \frac{1}{\bar{N}_\bh(z_L)}\sigmacr(z_L)\int\!\dr\chi~\chi^2f_\kappa(\chi)
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+  \int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}
+\phm(k_\perp;M)
+e^{i\bk_\perp\cdot(\bx_\perp-\chi\btheta)}
+\nonumber\\
+ &\simeq&   \frac{1}{\bar{N}_\bh(z_L)}\sigmacr(z_L)\Delta\chi
+\chi_L^2f_\kappa(\chi_L)
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M;z_L)
+  \int\!\frac{\dr^2\bk_\perp }{(2\pi)^2}
+\phm(k_\perp;M)
+e^{i\bk_\perp\cdot(\bx_\perp-\chi_L\btheta)}\nonumber\\
+ &=&\frac{1}{\bnh(z_L)}\bar{\rho}_{\rm m0}
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M;z_L)
+  \int\!\frac{\dr^2\bk_\perp }{(2\pi)^2}
+\phm(k_\perp;M)
+e^{i\bk_\perp\cdot(\bx_\perp-\chi_L\btheta)}
+\end{eqnarray}
+%
+
+%
+\begin{equation}
+ {\bf C}={\bf C}^{\rm Gauss}+{\bf C}^{T}
+\end{equation}
+%
+\begin{equation}
+ C^{\rm Gauss}_{ij}=\frac{2}{N_{\rm mode}(k_i)}\delta^K_{ij}
+  \left[\chm(k_i)^2+C_{\rm hh}^{\sigmacr}(k_i)C_\kappa(k_i)\right]
+\end{equation}
+%
+\begin{eqnarray}
+N_{\rm mode}(k)&\simeq &\int\!\!\dr\chi~\, f_\bh(\chi)\frac{2\pi k\Delta
+ k}{(2\pi/\chi\Theta_S)^2}=\Omega_S
+ \int\!\!\dr\chi~\, f_\bh(\chi)\frac{ k\Delta k\chi^2}{2\pi}\simeq
+ \frac{k\Delta k\chi_L^2\Omega_S}{2\pi}\nonumber\\
+ \chh^{\sigmacr}(k)&=&\frac{1}{\bNh(z_L)^2}
+  \int\!\!\dr\chi\, f_\bh(\chi)^2\sigmacr(\chi)^2\left[\int\!\!\dr
+					    M\bnh b(M)\right]^2\pml(k;\chi)+
+  \frac{\int\!\!\dr\chi\, f_\bh(\chi)\sigmacr(\chi)^2\int\!\!\dr M\,
+  \bnh}{\bNh(z_L)^2}\nonumber\\
+C_\kappa(k)&=&\int\!\!\dr\chi\,f_\kappa(\chi)^2P^{\rm NL}_{\rm
+ m}(k;\chi)+\frac{\sigma_\epsilon^2}{\bar{n}_{gs}},
+\end{eqnarray}
+%
+
+Using Limeber's approximation,
+%
+\begin{equation}
+C^T_{ij}=\frac{1}{\bNh(z_L)^2}\int\!\!\dr\chi\,
+ f_\bh(\chi)^2\sigmacr(\chi)^2
+ \frac{1}{(\chi^2\Omega_S)^2}\int\!\frac{\dr^2\bq}{(2\pi)^2}|\tW(\bq)|^2
+ \int_{k_i}\!\!\frac{\dr\bk}{V(k_i)}
+ \int_{k_j}\!\!\frac{\dr\bk}{V(k_j)}
+ T_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)
+\end{equation}
+
+For squeezed configurations with $k,k'\gg q$ we can express the change
+in the trispectrum due to the long wavelength $q$ mode to leading order
+in $q/k$ as
+%
+\begin{equation}
+\delta T_{\rm hmhm}\equiv T_{\rm
+ hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)-T_{\rm hmhm}(\bk,-\bk,\bk',-\bk')
+\end{equation}
+%
+with
+%
+\begin{eqnarray}
+ &&\delta T^{\rm 1h}_{\rm hmhm}\simeq 0\nonumber\\
+ &&\delta T^{\rm 2h(22)}_{\rm hmhm}\simeq
+  \pml(q)I^{(S)1}_1(k)I^{(S)1}_1(k')\nonumber\\
+ &&\delta T^{\rm 2h(13)}_{\rm hmhm}\simeq 0\nonumber\\
+ &&\delta T^{\rm 3h}_{\rm hmhm}\simeq 2\pml(q)I_1^{(S)1}(k'){\cal
+  F}(\bk,\bq)+2\pml(q)I_1^{(S)1}(k){\cal F}(\bk',-\bq)\nonumber\\
+ &&\delta T^{\rm 4h}_{\rm hmhm}\simeq 4\pml(q){\cal F}(\bk,\bq){\cal F}(\bk',-\bq)
+\end{eqnarray}
+%
+where
+%
+\begin{eqnarray}
+ {\cal F}(\bk,\bq)\equiv\left[
+\pml(k)F_2(\bq,-\bk)+\pml(|\bk-\bq|)F_2(\bq,\bk-\bq)
+			\right]I^{(S)0}_0I_1^{(S)1}(\bk-\bq)
+\end{eqnarray}
+%
+with the mode-coupling kernel $F_2$ defined as
+%
+\begin{equation}
+ F_2(\bk,\bq)\equiv \frac{5}{7}+\frac{1}{2}\left(\frac{1}{k^2}+\frac{1}{q^2}\right)(\bk\cdot\bq)
++\frac{2}{7}\frac{(\bk\cdot\bq)^2}{k^2q^2}
+\end{equation}
+%
+The latter must be handled with care since the mode coupling factor
+$F_2$ has a pole when one of its arguments goes to zero. Thus we need to
+consistently expand this expression in $q/k$ (or $q/k'$).  The result of
+integrating over the direction of $\bk$ is
+%
+\begin{equation}
+ \int^{2\pi}_0\!\!\frac{\dr\phi}{2\pi}{\cal F}(\bk,\bq)=\frac{1}{2}
+\left[\frac{24}{7}-\frac{1}{2}\frac{\dr\ln \phml(k)}{\dr \ln
+ k}\right]\phml(k)
+\end{equation}
+
+\begin{equation}
+ \frac{\dr \ln P_{\rm hm}(k)}{\dr \deltab}=
+  \left[\frac{24}{7}-\frac{1}{2}\frac{\dr\ln \phml(k)}{\dr \ln
+ k}\right]\phml(k)+I^{(S)1}_1(k)
+\end{equation}
+
+
+\begin{eqnarray}
+ {\bf C}^{\rm SSC}&\leftarrow &\left\langle
+  \left[1-2
+\int\!\!\dr\chi~f_{\rm h}(\chi)\int\!\!\dr MS(M)\bnh b\deltab
+  \right]
+  \left[
+   \int\!\!\dr\chi~f_{\rm h}(\chi)P^{S}_{\rm hm}(k)\left\{
+1+
+\frac{\dr\ln P^{S}_{\rm hm}(k)}{\dr \deltab}\deltab
+				  \right\}
+  \right]\right.\nonumber\\
+&&\hspace{12em}\times \left.  \left[
+   \int\!\!\dr\chi~f_{\rm h}(\chi)P^{S}_{\rm hm}(k)\left\{
+1+
+\frac{\dr\ln P^{S}_{\rm hm}(k')}{\dr \deltab}
+\deltab\right\}
+				 \right]\right\rangle\nonumber\\
+ &\simeq &
+\frac{1}{\bNh^2}
+\int \!\!\dr\chi~f_{\rm h}(\chi)^2
+\left[
+\frac{\dr\ln P^{S}_{\rm hm}(k)}{\dr \deltab}
+\frac{\dr\ln P^{S}_{\rm hm}(k')}{\dr \deltab}
+-2I^{(S)1}_0
+\frac{\dr\ln P^{S}_{\rm hm}(k)}{\dr \deltab}
+-2I^{(S)1}_0
+\frac{\dr\ln P^{S}_{\rm hm}(k')}{\dr \deltab}
+\right]\frac{1}{(\chi^2\Omega_S)^2}\int\!\!\frac{\dr^2\bq}{(2\pi)}|\tW(\bq)|^2\pml(q)
+\end{eqnarray}
+
+First of all, note that we define the halo number density fluctuation
+relative to the mean within the survey window, as shown from
+Eq.~(\ref{eq:hNh}): 
+%
+\begin{equation}
+ \hchm(k_i)=\frac{\chm(k_i)}{1+\delta \ln\hNh|_{\deltab}}\simeq
+  \chm(k_i)
+  \left[1-\delta\ln\hNh|_{\deltab}\right]
+\end{equation}
+
+\begin{eqnarray}
+ \delta\ln\hchm(k_i)|_{\deltab}\simeq \frac{1}{\bNh(z_L)}\int\!\dr \chi\,
+  f_\bh(\chi)\int\!\!\dr M\, \bnh(M)S(M)b(M)\deltab(\chi)
+\end{eqnarray}
+
+
+
+\begin{eqnarray}
+ \ave{ \delta\ln\hchm(k_i)|_{\deltab} \delta\ln\hchm(k_j)|_{\deltab}}
+  &=&\frac{1}{\bNh(z_L)^2}
+  \int\!\!\dr\chi\int\!\!\dr\chi'\, f_\bh(\chi)f_\bh(\chi')
+  \int\!\!\dr M\int\!\!\dr M'\, S(M)\bnh(M)S(M)\bnh(M')
+  b(M)b(M')\ave{\deltab(\chi)\deltab(\chi')}\nonumber\\
+ &&\hspace{-10em}=\frac{1}{\bNh(z_L)^2}
+ \int\!\!\dr\chi\int\!\!\dr\chi'\, f_\bh(\chi)f_\bh(\chi')
+  \int\!\!\dr M\int\!\!\dr M'\, S(M)\bnh(M)S(M')\bnh(M')
+  b(M)b(M')
+\nonumber\\
+ &&\hspace{-8em}\times
+  \frac{1}{\chi^2\Omega_S\chi^{\prime 2}\Omega_S}
+\int\!\!\frac{\dr k_\parallel}{2\pi}\int\!\!\frac{\dr k'_\parallel}{2\pi}
+\int\!\! \frac{\dr^2 \bq}{(2\pi)^2}
+\int\!\! \frac{\dr^2 \bq'}{(2\pi)^2}
+\tW(\bq)tW(\bq')\ave{\deltaml(k_\parallel,-\bq)\deltaml(k'_\parallel,-\bq')}
+e^{ik_\parallel\chi+i\chi'k'_\parallel}\nonumber\\
+ &&\hspace{-10em}=\frac{1}{\bNh(z_L)^2}
+\int\!\!\dr\chi\int\!\!\dr\chi'\, f_\bh(\chi)f_\bh(\chi')
+  \int\!\!\dr M\int\!\!\dr M'\, S(M)\bnh(M)S(M')\bnh(M')\nonumber\\
+&&\hspace{-8em}\times  \frac{1}{\chi^2\Omega_S\chi^{\prime 2}\Omega_S}
+\int\!\!\frac{\dr k_\parallel}{2\pi}
+\int\!\! \frac{\dr^2 \bq}{(2\pi)^2}
+|\tW(\bq)|^2\pml\!\left(\sqrt{k_\parallel^2+\bq^2}\right)
+e^{ik_\parallel(\chi-\chi')}\nonumber\\
+ &&\hspace{-10em}\simeq \frac{1}{\bNh(z_L)^2}\int\!\!\dr\chi\,
+  f_\bh(\chi)^2\left[\int\!\!\dr M\, S(M)\bnh(M)b(M)\right]^2
+  \frac{1}{(\chi^2\Omega_S)^2}
+\int\!\! \frac{\dr^2 \bq}{(2\pi)^2}
+|\tW(\bq)|^2\pml\!(q)
+\end{eqnarray}
+
+The covariance matrix describes expected statistical
+errors in measurements of the stacked lesing profile as well as how the
+stacked lensing power spectra of different wavenumber bins are correted
+with each other. The covariance matrix has three contributions: the
+Gaussian term, the non-Gaussian term arising from sub-volume modes, and
+the non-Gaussian, super-sample covariance (SSC) term arising from
+super-survey modes.
+%
+\begin{eqnarray}
+ {\rm Cov}[P_{\dsigma}(k),P_{\dsigma}(k')]&=&{\bf C}^{\rm Gauss}
+  +{\bf C}^{\rm sub-NG}
+  +{\bf C}^{\rm SSC}\nonumber\\
+  &&\hspace{-3em}=
+  \frac{\delta_{kk'}^K}{N_{\rm mode}(k)}
+\left[P_{\dsigma}(k)^2
+ +P^{\rm obs}_{\mathrm{hh}}(k)\sigmacr(z_L)^2\chi_L^2C_{\kappa}^{\rm
+ obs}(l=\chi_L k)\right]
+%\nonumber\\
+%&&
+ +\frac{1}{\chi_L^2\Omega_{\rm s}}\bar{T}^{\rm
+ 2D}_{\mathrm{hhmm}}(k,k';z_L)
+ +\sigma_b^2\frac{\partial P_{\dsigma}(k)}{\partial \delta_b}
+ \frac{\partial P_{\dsigma}(k')}{\partial \delta_b}
+\end{eqnarray}
+%
+where $N_{\rm mode}(k)$ is the number of Fourier modes taken from the
+survey volume, $\phh(k)$ is the auto-power spectrum of halos, and
+$C_\kappa(l)$ is the cosmic shear power spectrum.
+%
+\begin{eqnarray}
+ N_{\rm mode}(k)&\equiv& \frac{2\pi k\Delta
+  k}{[2\pi/(\chi_L\Theta_s)]^2}=k\Delta k~ \chi_L^2\Omega_{\rm
+  s},\nonumber\\
+ \phh^{\rm obs}(k)&=&\phh(k)+\frac{1}{\bar{N}_\bh(z_L)}\nonumber\\
+ C^{\rm obs}_\kappa(l)&=&C_{\kappa}+\frac{\sigma_\epsilon^2}{\bar{n}_{sg}}.
+\end{eqnarray}
+%
+The halo auto-power spectrum term accounts for the sample varinace
+arising due to a finite number of halos in the survey region. The cosmic
+shear term accounts for the contribution arising from the mass
+distribution along the line-of-sight to source redshifts, and can be
+computed in terms of the nonlinear mass power spectrum:
+%
+\begin{equation}
+C_\kappa(l)=\int_{\chi\neq
+ [\chi_L-\Delta\chi/2,\chi_L+\Delta/2]}\!\dr\chi~W_\kappa(\chi)^2\chi^{-2}
+ P^{\rm NL}_{\rm m}\!\left(k=\frac{l}{\chi}; \chi\right), 
+\end{equation}
+%
+where the line-of-sight integration excludes the contribution of lens
+redshifts, in order to avoid a double counting. 
+
+More precisely to estimate the sample variance contribution due to
+cosmic shear, we can populate exactly the same configurations of
+lens-source galaxies into ray-tracing simulations, and
+
+
+\begin{eqnarray}
+\frac{\partial \ln P_{\dsigma}(k)}{\partial
+ \delta_b}&=&-\frac{1}{\bar{N}_\bh(z_L)}\frac{\partial
+ \bar{N}_\bh(z_L)}{\partial \delta_b}+
+ \frac{1}{\bar{N}_\bh(z_L)}\int\!\dr\chi~\chi^2
+ \frac{\partial }{\partial
+ \delta_b}\left[\int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)P_{\rm
+	   hm}(k;M)\right]\nonumber\\
+ &=& -\bar{b}_1+\frac{1}{\bar{N}_\bh(z_L)}\int\!\dr\chi~\chi^2
+ \frac{\partial }{\partial
+ \delta_b}\left[\int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)P_{\rm
+	   hm}(k;M)\right]\nonumber\\
+\end{eqnarray}
+
+\begin{equation}
+ \bar{T}^{\rm 2D}_{{\rm hh}\dsigma\dsigma}(k,k')
+  =\frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4\int\!\dr M\dr M'\frac{\dr n}{\dr M}\frac{\dr n}{\dr M'}S(M,\chi;z_L)S(M',\chi;z_L)
+T_{{\rm hhmm}}(\bk,-\bk,\bk',-\bk')
+\end{equation}
+
+\begin{equation}
+T=T^{\rm 1h}+\left(T^{\rm 2h(22)}+T^{\rm 2h(13)}\right)+T^{\rm
+ 3h}+T^{\rm 4h}
+\end{equation}
+
+\begin{eqnarray}
+ &&T^{\rm 1h}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')=\frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)^2\left(\frac{M}{\bar{\rho}_{\rm
+					m0}}\right)^2
+  u_M(k)u_M(k')\\
+  &&T^{\rm 2h(13)}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')=
+  \frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4
+  \int\!\dr M_1\dr M_2~\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\nonumber\\
+&&\hspace{4em}\times  \left[
+   P_{\rm hh}(k)\left\{S(M_1)S(M_2)\left(\frac{M_2}{\bar{\rho}_{\rm m0}}\right)^2
+ u_{M_2}(k)u_{M_2}(k')
+ +\frac{M_1}{\bar{\rho}_{\rm
+ m0}}u_{M_1}(k)S(M_2)^2\frac{M_2}{\bar{\rho}_{\rm m0}}u_{M_2}(k')
+		\right\} +(k\leftrightarrow k')  
+  \right]\\
+&&T^{\rm 2h(22)}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')=
+  \frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4
+  \int\!\dr M_1\dr M_2~\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\nonumber\\
+ &&\hspace{4em}\times
+\left[
+ P_{\rm hh}(|\bk+\bk'|)S(M_1)^2\left(\frac{M_2}{\bar{\rho}_{\rm
+				m0}}\right)^2
+ u_{M_2}(k)u_{M_2}(k')
+ +P_{\rm hh}(|\bk-\bk'|)S(M_1)S(M_2)\frac{M_1}{\bar{\rho}_{\rm m0}}
+ \frac{M_1}{\bar{\rho}_{\rm m0}}u_{M_1}(k')u_{M_2}(k)
+	   \right]\\
+&& T^{\rm 3h}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')=
+  \frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4
+  \int\!\dr M_1\dr M_2\dr M_3~\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}\nonumber\\
+ &&\hspace{4em}\times
+  \left[
+B_{\rm hhh}(\bk+\bk',-\bk,-\bk')S(M_1)^2\frac{M_2}{\bar{\rho}_{\rm
+m0}}u_{M_2}(k)\frac{M_3}{\bar{\rho}_{\rm m0}}u_{M_3}(k')
+  \right.
+%\nonumber\\
+% &&\hspace{6em}
+  +B_{\rm hhh}(\bk-\bk',-\bk,\bk')S(M_1)\frac{M_1}{\bar{\rho}_{\rm
+m0}}u_{M_1}(k')
+\frac{M_2}{\bar{\rho}_{\rm m0}}u_{M_2}(k)S(M_3)
+\nonumber\\
+&&\hspace{4em}
+ +B_{\rm hhh}(-\bk+\bk',\bk,-\bk')S(M_1)\frac{M_1}{\bar{\rho}_{\rm
+m0}}u_{M_1}(k)S(M_2)
+\frac{M_3}{\bar{\rho}_{\rm m0}}u_{M_3}(k')
+%\nonumber\\
+% &&\hspace{6em}
+  \left.
+		+B_{\rm hhh}(-\bk-\bk',\bk,\bk')
+\left(\frac{M_1}{\bar{\rho}_{\rm m0}}\right)^2u_{M_1}(k)u_{M_1}(k')
+S(M_2)S(M_3)\right]\nonumber\\
+ &&\\
+&& T^{\rm 4h}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')=
+  \frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi~\chi^4\nonumber\\
+&&\hspace{6em}\times  \int\!\dr M_1\dr M_2\dr M_3\dr M_4~\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+  \frac{\dr n}{\dr M_4}S(M_1)S(M_3)T_{\rm hhhh}(\bk,-\bk,\bk',-\bk')
+\end{eqnarray}
+
+\begin{eqnarray}
+ &&T^{\rm 1h}_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)\simeq
+  T^{\rm 1h}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')\\
+ &&T^{\rm 2h(13)}_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)
+  \simeq T^{\rm 2h(22)}_{\rm hmhm}(\bk,-\bk,\bk',-\bk')
+  +P_{\rm hh}(q)S(M_1)\frac{M_1}{\bar{\rho}_{\rm m0}}u_{M_1}(k)
+  S(M_2)\frac{M_2}{\bar{\rho}_{\rm m0}}u_{M_2}(k')
+\\
+ &&T^{\rm 3h}_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)
+  \simeq T^{\rm 3h}(\bk,-\bk,\bk',-\bk')
+  +B_{\rm hhh}(\bq,\bk',-\bk'-\bq)S(M_1)\frac{M_1}{\bar{\rho}_{\rm
+  m0}}u_{M_1}(k)
+  S(M_2)\frac{M_3}{\bar{\rho}_{\rm m0}}u_{M_3}(k')\nonumber\\
+ &&\hspace{18em}+B_{\rm hhh}(-\bq,\bk,-\bk+\bq)
+  S(M_1)\frac{M_1}{\bar{\rho}_{\rm
+  m0}}u_{M_1}(k')S(M_2)\frac{M_3}{\bar{\rho}_{\rm m0}}u_{M_3}(k)\\
+ &&T^{\rm 4h}_{\rm hmhm}(\bk,-\bk+\bq,\bk',-\bk'-\bq)
+  \simeq T^{4h}_{\rm hhhh}(\bk,-\bk,\bk',-\bk')+.....
+\end{eqnarray}
+
+\begin{eqnarray}
+B^{\rm PT}_{\rm m}(\bk_1,\bk_2,\bk_3)&=&2F_2(\bk_1,\bk_2)
+  P^{\rm lin}_{\rm m}(k_1)P^{\rm lin}_{\rm m}(k_2)+2~{\rm perm.}\nonumber\\
+T^{\rm PT}_{\rm m}(\bk_1,\bk_2,\bk_3,\bk_4)&=&
+  4\left[F_2(\bk_{13},-\bk_1)F_2(\bk_{13},\bk_2)
+    P^{\rm lin}_{\rm m}(k_{13})
+    P^{\rm lin}_{\rm m}(k_{1})
+    P^{\rm lin}_{\rm m}(k_{2})
+ +11~{\rm perm.}\right]\nonumber \\
+ &&+6\left[
+      F_3(\bk_1,\bk_2,\bk_3)
+          P^{\rm lin}_{\rm m}(k_{1})
+          P^{\rm lin}_{\rm m}(k_{2})
+          P^{\rm lin}_{\rm m}(k_{3})+3~{\rm perm.}
+     \right]
+\end{eqnarray}
+
+\begin{align}
+F_2(\bk_1,\bk_2) \equiv &\frac{5}{7}+\frac{1}{2}
+\left(\frac{1}{k_1^2}+\frac{1}{k_2^2}\right)(\bk_1\cdot\bk_2)
++\frac{2}{7}\frac{(\bk_1\cdot\bk_2)^2}{k_1^2k_2^2},\nonumber\\
+F_3(\bk_1,\bk_2,\bk_3) \equiv &
+ \frac{7}{18}\frac{\bk_{12}\cdot\bk_1}{k_1^2}
+ \left[F_2(\bk_2,\bk_3)+G_2(\bk_1,\bk_2)\right]
++\frac{1}{18}\frac{k_{12}^2(\bk_1\cdot\bk_2)}{k_1^2k_2^2}
+\left[G_2(\bk_2,\bk_3)+G_2(\bk_1,\bk_2)\right], \nonumber\\
+G_2(\bk_1,\bk_2)\equiv & \frac{3}{7}+\frac{1}{2}
+\left(\frac{1}{k_1^2}+\frac{1}{k_2^2}\right)
+(\bk_1\cdot\bk_2)+
+\frac{4}{7}\frac{(\bk_1\cdot\bk_2)^2}{k_1^2k_2^2}
+\end{align}
+
+
+The lensing convergence field, more generally any two-dimensional field
+projected along the line-of-sight, can be expressed as
+%
+\begin{equation}
+\kappa(\btheta)=\int\!\dr\chi~W(\chi)\deltam(\chi,\chi\btheta)\simeq
+ \sum_{i}\Delta\chi~ W(\chi_i)\deltam(\chi_i,\chi\btheta),
+\end{equation}
+%
+where $W(\chi)$ is the radial weight function. To measaure a
+cross-correlation of the projected field with the distribution of halos
+at a particular redshfit $z_L$ \citep{Hikageetal:13,Nishizawaetal:13},
+we can estimate the three-dimensional distribution of the underlying
+mass density field at the halo redshift:
+%
+\begin{equation}
+ \hat{\delta}_{\mathrm{m}}^\kappa(\bk_\perp;z_L)\equiv
+  \int_S\! \dr^2\bx_\perp W^{-1}(z_L)\kappa(\btheta)e^{-i\bk_\perp\cdot
+  \chi_L\btheta}
+  \simeq \deltam(\bk_\perp,k_\parallel;\chi_L)+\chi_L^{-2}W^{-1}(z_L)\kappa_{\bl}
+\end{equation}
+%
+where $\chi_L\equiv \chi(z_L)$ and $\bx_\perp$ and $\bk_\perp$ are the
+two-dimensional spatial vector and wavevector in the plane perpendicular
+to the line-of-sight direction.
+
+
+
+
+\begin{eqnarray}
+ \havedsigma(k)(2\pi)^2\delta_D^2(\bk+\bk')&\equiv &
+  \ave{\hat{\delta}_\bh^{\rm 2D}(\bk,\chi)\sigmacr(\chi)}
+\end{eqnarray}
+
+The two-dimensional Fourier mode in the lens plane at redshift $z$ can
+be estimted as
+%
+\begin{equation}
+\hdsigma(\bk_\perp;\chi)\equiv\sigmacr(\chi)\int_{S=\chi\Omega_S}\!\dr^2\bx_\perp~\kappa(\btheta)e^{-i\bk_\perp\cdot\bx_\perp},
+\end{equation}
+%
+where $\bx_\perp$ is the two-dimensional position vector in the 
+plane at $z$, $\bx_\perp=\chi\btheta$.
+
+\begin{equation}
+ \hdsigma(\bk_\perp)=\chi_L^2 \kappa({\bl=\chi_L\bk_\perp})
+\end{equation}
+%
+\begin{eqnarray}
+ \ave{\hdsigma(\bk_\perp)\hdsigma(\bk'_\perp)}&\equiv&
+  P_{\dsigma}(k_\perp)(2\pi)^2\delta_D^2(\bk_\perp+\bk'_\perp)\nonumber\\
+&\leftarrow &\chi_L^4
+ C_\kappa(l=\chi_Lk_\perp)(2\pi)^2\delta_D^2(\bl+\bl')|_{\bl=\chi_L\bk_\perp}\nonumber\\ 
+&&=\chi_L^2 C_\kappa(l=\chi_Lk_\perp)(2\pi)^2\delta_D^2(\bk_\perp+\bk'_\perp)
+\end{eqnarray}
+
+
+Cross-correlating the convergence field on the sky with the distribution
+of halos in the particular redshift slice around $z_L$ allows us to
+probe the mass power spectrum at the redshift:
+%
+\begin{equation}
+\dsigma(R;z_L)\equiv \ave{\delta_h^{\rm 2D}(\bx_\perp;z_L)\sigmacr(z_L)\kappa(\btheta)}_{R=|\bx_\perp-\chi_L\btheta|},
+\end{equation}
+%
+where the average is doen over all the pairs of source galaxy and
+lensing halo that are separate by the projected distance $R$ to within
+the bin width, in the plane parpendicualr to the line-of-sight. The
+stacked lensing profiles can be expressed in terms of teh power spectrum
+as
+%
+\begin{eqnarray}
+ \Sigma(R;z_L)&=&\int\!\frac{k\dr k}{2\pi}P_{\dsigma}(k;z_L)J_0(kR),\nonumber\\
+ \dsigma(R;z_L)&=&\int\!\frac{k\dr k}{2\pi}P_{\dsigma}(k;z_L)J_2(kR),
+\end{eqnarray}
+%
+where $J_0(x)$ and $J_2(x)$ are the zero-th and 2nd order Bessel
+functions, and the power spectrum $P_{\dsigma}(k)$ is given as
+%
+\begin{equation}
+ P_{\dsigma}(k)=\frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}
+  \int\!\dr\chi~\chi^2
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,z_L)P_{\rm hm}(k;M).
+\end{equation}
+
+
+Hence an estimtor of the matter power spectrum at $z_L$ can be
+constructed from the cross-correlation function:
+%
+\begin{equation}
+\hat{P}_{\mathrm{hm}}(k;z_L)=\ave{\deltah^\ast(\bk;z_L)\hat{\delta}^\kappa_{\mathrm{m}}(\bk)}
+\end{equation}
+%
+
+
+
+
+\begin{equation}
+ P_{\dsigma}(k;z_L)=
+  \frac{1}{\bnh(z_L)}\bar{\rho}_{\rm m0}
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M;z_L)
+\phm(k;M).
+\end{equation}
+
+\begin{equation}
+ \dsigma(R;z_L)=\int\!\frac{k\dr k}{2\pi}P_{\dsigma}(k;z_L)J_2(kR).
+\end{equation}
+
+\begin{equation}
+f(\bx_\perp)=\frac{1}{\chi_L^2\Omega_S}\sum_{\bk}
+ f(\bk_\perp)e^{i\bk_\perp\cdot\bx_\perp}
+ \simeq \int\!\frac{\dr^2\bk_\perp}{(2\pi)^2}f(\bk_\perp)e^{i\bk_\perp\cdot\bx_\perp}
+\end{equation}
+
+\begin{equation}
+\hat{P}_{\rm hm}(k_i)=\frac{1}{\chi_L^2\Omega_S N_{\rm mode}(k)}\sum_{\bk;
+ k\in k_i} \hat{\delta}_\bh(\bk)\hdsigma(-\bk)
+\end{equation}
+
+\begin{eqnarray}
+{\rm Cov}[\phm(k_i),\phm(k_j)]^{\rm NG}&=&\frac{1}{\chi_L^4\Omega_S^2N_{\rm
+ mode}(k)N_{\rm mode}(k')}\sum_{\bk; k\in k_i}
+ \sum_{\bk'; k'\in k_j}
+ \ave{\hat{\delta}_\bh(\bk)\hdsigma(-\bk)\hat{\delta}_\bh(\bk')\hdsigma(-\bk')}_{\rm
+ c}\nonumber\\
+&=&\frac{1}{\chi_L^4\Omega_S^2N_{\rm
+ mode}(k)N_{\rm mode}(k')}\sum_{\bk; k\in k_i}
+ \sum_{\bk'; k'\in k_j}(\chi_L^2\Omega_S)\delta^K_{\bk-\bk+\bk'-\bk'}
+ T_{{\rm hh}\dsigma\dsigma}(\bk,-\bk,\bk',-\bk')\nonumber\\
+ &=&\frac{1}{\chi_L^2\Omega_SN_{\rm
+ mode}(k)N_{\rm mode}(k')}\sum_{\bk; k\in k_i}
+ \sum_{\bk'; k'\in k_j}
+ T_{{\rm hh}\dsigma\dsigma}(\bk,-\bk,\bk',-\bk')\nonumber\\
+&=& \frac{\chi_L^2\Omega_S}{N_{\rm
+ mode}(k)N_{\rm mode}(k')}
+\int_{k\in k_i}\!\frac{\dr^2\bk}{(2\pi)^2}
+\int_{k'\in k_j}\!\frac{\dr^2\bk'}{(2\pi)^2}
+ T_{{\rm hh}\dsigma\dsigma}(\bk,-\bk,\bk',-\bk')\nonumber\\
+&=& \frac{1}{\chi_L^2\Omega_S}
+\int_{k\in k_i}\!\frac{\dr^2\bk}{2\pi k_i\Delta k}
+\int_{k'\in k_j}\!\frac{\dr^2\bk'}{2\pi k_j\Delta k}
+ T_{{\rm hh}\dsigma\dsigma}(\bk,-\bk,\bk',-\bk')\nonumber\\
+&=& \frac{1}{4\pi f_{\rm sky}\chi_L^2}
+\int_{k\in k_i}\!\frac{\dr^2\bk}{2\pi k_i\Delta k}
+\int_{k'\in k_j}\!\frac{\dr^2\bk'}{2\pi k_j\Delta k}
+ T_{{\rm hh}\dsigma\dsigma}(\bk,-\bk,\bk',-\bk')
+\end{eqnarray}
+
+\begin{eqnarray}
+ \ave{\hat{\delta}^{\rm 2D}_\bh(\bk_1)
+  \hat{\delta}^{\rm 2D}_\bh(\bk_2)
+  \hdsigma(\bk_3)
+  \hdsigma(\bk_4)
+  }&=&\frac{\sigmacr(z_L)^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi_1\dr\chi_2
+  \dr\chi_3 \dr\chi_4
+  \chi_1^2\chi_2^2 W_\kappa(\chi_3)W_\kappa(\chi_4)\nonumber\\
+ &&\hspace{-8em}\times
+  \int\!\dr M_1\dr M_2 \frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  S(M_1,\chi_1;z_L)S(M_2,\chi_2;z_L)\nonumber\\
+ &&\hspace{-8em}\times
+  \int\!\frac{\dr k_{1\parallel}}{2\pi}
+  \cdots\frac{\dr k_{4\parallel}}{2\pi}
+  \ave{\deltah(\bk_1)  \deltah(\bk_2)
+  \delta_{\rm m}(\bk_3)  \delta_{\rm m}(\bk_4)}
+  e^{ik_{1\parallel}\chi_1+\cdots+ik_{4\parallel}\chi_4
+  }\nonumber\\
+ &&\hspace{-14em}=(2\pi)^2\delta_D^2(\bk_{1\perp}+\cdot+\bk_{4\perp})
+\frac{\sigmacr(z_L)^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi_1\dr\chi_2
+  \dr\chi_3 \dr\chi_4
+  \chi_1^2\chi_2^2 W_\kappa(\chi_3)W_\kappa(\chi_4)\nonumber\\ 
+ &&\hspace{-8em}\times
+  \int\!\dr M_1\dr M_2 \frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  S(M_1,\chi_1;z_L)S(M_2,\chi_2;z_L)\nonumber\\
+&&\hspace{-8em}\times \int\!\frac{\dr k_{1\parallel}}{2\pi}
+  \cdots\frac{\dr k_{3\parallel}}{2\pi}
+ T_{\rm hhmm}(\bk_1,\bk_2,\bk_3,\bk_4)
+  e^{ik_{1\parallel}(\chi_1-\chi_4)+i\bk_{2\parallel}(\chi_2-\chi_4)
+  +i\bk_{3\parallel}(\chi_3-\chi_4)
+  }\nonumber\\
+ &&\hspace{-14em}\simeq (2\pi)^2\delta_D^2(\bk_{1\perp}+\cdot+\bk_{4\perp})
+\frac{\sigmacr(z_L)^2}{\bar{N}_\bh(z_L)^2}
+  \int\!\dr\chi
+  \chi^4 W_\kappa(\chi)^2
+  \int\!\dr M_1\dr M_2 \frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  S(M_1,\chi_1;z_L)S(M_2,\chi_2;z_L)
+ T_{\rm hhmm}(\bk_1,\bk_2,\bk_3,\bk_4;M_1,M_2,\chi_L)
+ \nonumber\\
+ &&\hspace{-14em}\simeq
+  (2\pi)^2\delta_D^2(\bk_{1\perp}+\cdot+\bk_{4\perp})
+  \frac{\bar{\rho}_{\rm m0}^2}{\bar{N}_\bh(z_L)^2}
+ \chi_L^4 \Delta\chi  \int\!\dr M_1\dr M_2 \frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  S(M_1,\chi_1;z_L)S(M_2,\chi_2;z_L)
+ T_{\rm hhmm}(\bk_1,\bk_2,\bk_3,\bk_4;\chi_L)\nonumber\\
+ &&\hspace{-14em}=
+  (2\pi)^2\delta_D^2(\bk_{1\perp}+\cdot+\bk_{4\perp})
+  \frac{\bar{\rho}_{\rm m0}^2}{\bnh(z_L)^2\Delta\chi}
+\int\!\dr M_1\dr M_2 \frac{\dr n}{\dr M}\frac{\dr n}{\dr M}
+  S(M,z_L)S(M',z_L)
+ T_{\rm hhmm}(\bk_1,\bk_2,\bk_3,\bk_4;M,M',\chi_L)
+\end{eqnarray}
+
+\begin{eqnarray}
+ &&\delta_\bh(\bx_1)=\frac{1}{\bar{n}_\bh}n_\bh(\bx_1)-1=\frac{1}{\bnh}\sum_{i}\delta_D^3(\bx_i-\bx_1)-1\nonumber\\
+ &&\deltam(\bx_1)=\frac{1}{\bar{\rho}_{\rm m0}}\sum_i m_iu_{m_i}(\bx_1-\bx_i)-1
+\end{eqnarray}
+
+
+
+\begin{eqnarray}
+ \xi_{\rm 4, hhmm}(\bx_1,\bx_2,\bx_3,\bx_4)&=&
+  \ave{\delta_\bh(\bx_1)\delta_\bh(\bx_2)\delta_{\rm
+  m}(\bx_3)\delta_{\rm m}(\bx_4)}
+\end{eqnarray}
+
+\begin{eqnarray}
+\bnh^2\rho_{\rm m0}^2 \xi^{{\rm 1h}}_{\rm 4,
+ hhmm}(\bx_1,\bx_2,\bx_3,\bx_4)&=&
+ \ave{\sum_i \delta_D^3(\bx_1-\bx_i)\delta_D^3(\bx_2-\bx_i)
+ M_iu_{M_i}(\bx_3-\bx_i)M_iu_{M_i}(\bx_4-\bx_i)
+ }\nonumber\\
+ &&\hspace{-8em}=\int\!\dr M \frac{\dr n}{\dr M}M^2 \int\!d\bx \delta_D^3(\bx_1-\bx)\delta_D^3(\bx_2-\bx)
+ u_{M}(\bx_3-\bx)u_{M}(\bx_4-\bx)\nonumber\\
+ &&\hspace{-8em}=\int\!\dr M \frac{\dr n}{\dr M}M^2 \int\!d\bx
+  \int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+  e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}e^{-i\bx\cdot(\bk_1+\cdot+\bk_4)}
+ u_{M}(k_3)u_{M}(k_4)\nonumber\\
+ &&\hspace{-8em}=\int\!\dr M \frac{\dr n}{\dr M}M^2 
+  \int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+  e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+  u_{M}(k_3)u_{M}(k_4)(2\pi)^3\delta_D^3(\bk_1+\cdots+\bk_4)
+  \nonumber\\
+ &&\hspace{-8em}\rightarrow T^{\rm 1h}_{\rm hhmm}(\bk_1,\bk_2,\bk_3,\bk_4)=\frac{1}{\bnh^2}
+  \int\!\dr M\frac{\dr n}{\dr M}\left(\frac{M}{\bar{\rho}_{\rm m0}}\right)^2 u_M(k_3)u_M(k_4)
+\end{eqnarray}
+
+
+\begin{eqnarray}
+\bnh^2\rho_{\rm m0}^2 \xi^{{\rm 2h-(13)}}_{\rm 4,
+ hhmm}(\bx_1,\bx_2,\bx_3,\bx_4)&=&
+ \ave{\sum_{i,j;i\ne j} \delta_D^3(\bx_1-\bx_i)\delta_D^3(\bx_2-\bx_j)
+ M_ju_{M_j}(\bx_3-\bx_j)M_ju_{M_j}(\bx_4-\bx_j)
+ }\nonumber\\
+&& +\ave{\sum_{i,j; i\ne j}M_i
+ u_{M_i}(\bx_3-\bx_i)\delta_D^3(\bx_1-\bx_j)\delta_D^3(\bx_2-\bx_j)
+ M_j u_{M_j}(\bx_4-\bx_j)}+\mbox{(perm.)}\nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+  d^3\by_2 \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \xi_{\rm
+hh}(\by_1-\by_2;M_1,M_2) \left[\delta_D^3(\bx_1-\by_1)\delta_D^3(\bx_2-\by_2)
+M_2^2u_{M_2}(\bx_3-\by_2)u_{M_2}(\bx_4-\by_2)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
++M_1u_{M_1}(\bx_3-\by_1)\delta_D^3(\bx_1-\by_2)\delta_D^3(\bx_2-\by_2)
+M_2u_{M_2}(\bx_4-\by_2)+(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+ d^3\by_2 \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \int\!\frac{d^3\bq}{(2\pi)^3}
+ P_{hh}(q;M_1,M_2)e^{i\bq\cdot(\by_1-\by_2)}\nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[e^{-i\bk_1\cdot\by_1}e^{-i\by_2\cdot(\bk_2+\bx_3+\bk_4)}
+M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
+		 +e^{-i\by_1\cdot\bk_3}e^{-i\by_2\cdot(\bk_1+\bk_2+\bk_4)}M_1u_{M_1}(k_3)
+		 M_2u_{M_2}(k_4)+(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+ \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \int\!\frac{d^3\bq}{(2\pi)^3}
+ P_{hh}(q;M_1,M_2)
+ \nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[(2\pi)^3\delta_D^3(\bq-\bk_1)(2\pi)^3\delta_D^3(\bq+\bk_2+\bk_3+\bk_4)
+M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
+		 +(2\pi)^3\delta_D^3(\bq-\bk_3)(2\pi)^3\delta_D^3(\bq+\bk_1+\bk_2+\bk_4)
+		 		 M_1u_{M_1}(k_3)
+		 M_2u_{M_2}(k_4)+(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+  \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  \int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+(2\pi)^3\delta_D^3(\bk_{1234})e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+ \nonumber\\
+&&\hspace{-10em} \times
+ \left[P_{\rm hh}(k_1)M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  + P_{\rm hh}(k_3)M_1M_2u_{M_1}(k_3)u_{M_2}(k_4)
++(\mbox{perm.})
+		    \right] \nonumber\\
+ &&\hspace{-12em}\rightarrow
+  T^{\rm 2h(13)}_{\rm 4, hhmm}(\bk_1,\bk_2,\bk_3,\bk_4)=
+  \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  \left[\left\{P_{\rm hh}(k_1)+P_{\rm hh}(k_2)\right\}
+   M_2^2u_{M_2}(k_3)u_{M_2}(k_4)\right.\nonumber\\
+&&\hspace{0em} \left. +P_{\rm hh}(k_3)M_1u_{M_1}(k_3)M_2u_{M_2}(k_4)
+   +P_{\rm hh}(k_4)M_1u_{M_1}(k_4)M_2u_{M_2}(k_4)
+  \right]
+\end{eqnarray}
+
+\begin{eqnarray}
+\bnh^2\rho_{\rm m0}^2 \xi^{{\rm 2h-(22)}}_{\rm 4,
+ hhmm}(\bx_1,\bx_2,\bx_3,\bx_4)&=&
+ \ave{\sum_{i,j;i\ne j} \delta_D^3(\bx_1-\bx_i)\delta_D^3(\bx_2-\bx_i)
+ M_ju_{M_j}(\bx_3-\bx_j)M_ju_{M_j}(\bx_4-\bx_j)
+ }\nonumber\\
+ && +\ave{\sum_{i,j; i\ne j}
+\delta_D^3(\bx_1-\bx_i)\delta_D^3(\bx_2-\bx_i)
+M_i
+ u_{M_j}(\bx_3-\bx_j)
+ M_j u_{M_j}(\bx_4-\bx_j)}+\mbox{(perm.)}\nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+  d^3\by_2 \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \xi_{\rm
+hh}(\by_1-\by_2;M_1,M_2) \left[\delta_D^3(\bx_1-\by_1)\delta_D^3(\bx_2-\by_1)
+M_2^2u_{M_2}(\bx_3-\by_2)u_{M_2}(\bx_4-\by_2)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
+		 +\delta_D^3(\bx_1-\by_1)M_1u_{M_1}(\bx_3-\by_1)
+		 \delta_D^3(\bx_2-\by_2)M_2u_{M_2}(\bx_4-\by_2)
++(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+ d^3\by_2 \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \int\!\frac{d^3\bq}{(2\pi)^3}
+ P_{hh}(q;M_1,M_2)e^{i\bq\cdot(\by_1-\by_2)}\nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[e^{-i\by_1\cdot(\bk_1+\bk_2)}
+  e^{-i\by_2\cdot(\bk_3+\bk_4)}
+M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
+		 +e^{-i\by_1\cdot(\bk_1+\bk_3)}e^{-i\by_2\cdot(\bk_2+\bk_4)}M_1u_{M_1}(k_3)
+		 M_2u_{M_2}(k_4)+(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+ \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+ \int\!\frac{d^3\bq}{(2\pi)^3}
+ P_{hh}(q;M_1,M_2)
+ \nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[(2\pi)^3\delta_D^3(\bq-\bk_1-\bk_2)(2\pi)^3\delta_D^3(\bq+\bk_3+\bk_4)
+M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}\left.
+		 +(2\pi)^3\delta_D^3(\bq-\bk_1-\bk_3)(2\pi)^3\delta_D^3(\bq+\bk_2+\bk_4)
+		 		 M_1u_{M_1}(k_3)
+		 M_2u_{M_2}(k_4)+(\mbox{perm.})
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+  \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  \int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+(2\pi)^3\delta_D^3(\bk_{1234})e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+ \nonumber\\
+&&\hspace{-10em} \times
+ \left[P_{\rm hh}(k_{12})M_2^2u_{M_2}(k_3)u_{M_2}(k_4)
+  + P_{\rm hh}(k_{13})M_1M_2u_{M_1}(k_3)u_{M_2}(k_4)
++(\mbox{perm.})
+		    \right] \nonumber\\
+ &&\hspace{-12em}\rightarrow
+  T^{\rm 2h(22)}_{\rm 4, hhmm}(\bk_1,\bk_2,\bk_3,\bk_4)=
+  \int\!\dr M_1 \dr M_2\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}
+  \left[P_{\rm hh}(k_{12})M_2^2u_{M_2}(k_3)u_{M_2}(k_4)\right.\nonumber\\
+&&\left.   +\left\{P_{\rm hh}(k_{13})+P_{\rm hh}(k_{14})\right\}
+   M_1u_{M_1}(k_3)M_2u_{M_2}(k_4)
+  \right]
+\end{eqnarray}
+
+\begin{eqnarray}
+\bnh^2\rho_{\rm m0}^2 \xi^{{\rm 3h}}_{\rm 4,
+ hhmm}(\bx_1,\bx_2,\bx_3,\bx_4)&=&
+ \ave{\sum_{i,j,k} \delta_D^3(\bx_1-\bx_i)\delta_D^3(\bx_2-\bx_i)
+ M_ju_{M_j}(\bx_3-\bx_j)M_ku_{M_k}(\bx_4-\bx_k)
+ }\nonumber\\
+ && +\ave{\sum_{i,j,k}
+\delta_D^3(\bx_1-\bx_i)
+M_i
+u_{M_i}(\bx_3-\bx_i)
+\delta_D^3(\bx_2-\bx_j)
+ M_k u_{M_k}(\bx_4-\bx_k)}+\mbox{(perm.)}\nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+  d^3\by_2d^3\by_3 \int\!\dr M_1 \dr M_2\dr M_3\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+  \int\!\frac{d^3\bq_1}{(2\pi)^3}\frac{d^3\bq_2}{(2\pi)^3}
+  B_{\rm hhh}(\bq_1,\bq_2,-\bq_{12})e^{i\bq_1\cdot(\by_1-\by_3)+i\bq_2\cdot(\by_2-\by_3)}\nonumber\\
+ &&\hspace{-10em}
+ \times \left[\delta_D^3(\bx_1-\by_1)\delta_D^3(\bx_2-\by_1)
+M_2u_{M_2}(\bx_3-\by_2)M_3u_{M_3}(\bx_4-\by_3)
+  \right.\nonumber\\
+ &&\hspace{-8em}
+		 +\delta_D^3(\bx_1-\by_1)M_1u_{M_1}(\bx_3-\by_1)
+		 \delta_D^3(\bx_2-\by_2)M_2u_{M_2}(\bx_4-\by_3)\nonumber\\
+ &&\hspace{-8em}\left.
++M_1^2u_{M_1}(\bx_3-\by_1)u_{M_1}(\bx_4-\by_1)\delta_D^3(\bx_1-\by_2)\delta_D^3(\bx_1-\by_3)
+ \right] \nonumber\\
+ &&\hspace{-12em}=\int\!d^3\by_1
+  d^3\by_2d^3\by_3
+  \int\!\dr M_1 \dr M_2\dr M_3\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+  \int\!\frac{d^3\bq_1}{(2\pi)^3}\frac{d^3\bq_2}{(2\pi)^3}
+    B_{\rm hhh}(\bq_1,\bq_2,-\bq_{12})e^{i\bq_1\cdot(\by_1-\by_3)+i\bq_2\cdot(\by_2-\by_3)}\nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[e^{-i\by_1\cdot(\bk_1+\bk_2)}
+  e^{-i\by_2\cdot\bk_3}  e^{-i\by_3\cdot\bk_4}
+M_2u_{M_2}(k_3)M_3u_{M_3}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}
+  +e^{-i\by_1\cdot(\bk_1+\bk_3)}e^{-i\by_2\cdot\bk_2}
+  e^{-i\by_3\cdot\bk_4}
+  M_1u_{M_1}(k_3)
+		 M_3u_{M_3}(k_4)\nonumber\\
+ &&\hspace{-8em}
+  \left. +e^{-i\by_1\cdot(\bk_3+\bk_4)}
+        e^{-i\by_2\cdot\bk_1}
+        e^{-i\by_3\cdot\bk_2}
+   M_1^2u_{M_1}(k_3)u_{M_1}(k_4)
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+  \int\!\dr M_1 \dr M_2\dr M_3\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+  \int\!\frac{d^3\bq_1}{(2\pi)^3}\frac{d^3\bq_2}{(2\pi)^3}
+    B_{\rm hhh}(\bq_1,\bq_2,-\bq_{12})\nonumber\\
+&&\hspace{-10em} \times\int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots\frac{d^3\bk_4}{(2\pi)^3}
+e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+\left[(2\pi)^9\delta_D^3(\bq_1-\bk_1-\bk_2)\delta_D^3(\bq_2-\bk_3)\delta_D^3(\bq_1+\bq_2+\bk_4)
+M_2u_{M_2}(k_3)M_3u_{M_3}(k_4)
+  \right.\nonumber\\
+ &&\hspace{-8em}
+  +(2\pi)^9\delta_D^3(\bq_1-\bk_1-\bk_3)
+  \delta_D^3(\bq_2-\bk_2)
+  \delta_D^3(\bq_1+\bq_2+\bk_4)
+  M_1u_{M_1}(k_3)
+		 M_3u_{M_3}(k_4)\nonumber\\
+ &&\hspace{-8em}
+  \left. +
+   (2\pi)^9\delta_D^3(\bq_1-\bk_3-\bk_4)\delta_D^3(\bq_2-\bk_1)
+   \delta_D^3(\bq_1+\bq_2+\bk_2)
+   M_1^2u_{M_1}(k_3)u_{M_1}(k_4)
+ \right] \nonumber\\
+ &&\hspace{-12em}=
+  \int\!\dr M_1 \dr M_2\dr M_3\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+  \int\!\frac{d^3\bk_1}{(2\pi)^3}\cdots \frac{d^3\bk_4}{(2\pi)^3}
+  (2\pi)^3\delta_D^3(\bk_{1234})e^{i(\bk_1\cdot\bx_1+\cdots+\bk_4\cdot\bx_4)}
+    \nonumber\\
+&&\hspace{-10em} \times
+\left[B_{\rm hhh}(\bk_{12},\bk_3,\bk_4)
+M_2u_{M_2}(k_3)M_3u_{M_3}(k_4)
+  +B_{\rm hhh}(\bk_{13},\bk_2,\bk_4)
+  M_1u_{M_1}(k_3)
+		 M_3u_{M_3}(k_4)\right.\nonumber\\
+ &&\hspace{-8em}
+  \left. +B_{\rm hhh}(\bk_{34},\bk_1,\bk_2)
+   M_1^2u_{M_1}(k_3)u_{M_1}(k_4)
+ \right] \nonumber\\
+ &&\hspace{-14em}\rightarrow
+  T^{3h}_{\rm hhh}(\bk_1,\bk_2,\bk_3,\bk_4)
+  =  \int\!\dr M_1 \dr M_2\dr M_3\frac{\dr n}{\dr M_1}\frac{\dr n}{\dr M_2}\frac{\dr n}{\dr M_3}
+\left[B_{\rm hhh}(\bk_{12},\bk_3,\bk_4)
+M_2u_{M_2}(k_3)M_3u_{M_3}(k_4)\right.\nonumber\\
+&&\hspace{-3em}\left.  +B_{\rm hhh}(\bk_{13},\bk_2,\bk_4)
+  M_1u_{M_1}(k_3)
+		 M_3u_{M_3}(k_4)
+  +B_{\rm hhh}(\bk_{34},\bk_1,\bk_2)
+   M_1^2u_{M_1}(k_3)u_{M_1}(k_4)+(\mbox{perm.})
+ \right] \nonumber\\
+\end{eqnarray}
+
+
+
+\begin{equation}
+ \Omega_S=\int\!\left[
+		 \prod_i^n\frac{d\bq_i}{(2\pi)^2}
+   \right]\tW(\bq_1)tW(\bq_2)\cdots\tW(\bq_n)
+ =\int\!\left[
+	 \prod_i^{(n-1)}\frac{d\bq_i}{(2\pi)^2}\right]
+	 \tW(\bq_1)\tW(\bq_2)\cdots\tW(-\bq_1-\bq_2-
+	 \cdots-\bq_{n-1})
+\end{equation}
+
+
+
+%
+\begin{eqnarray}
+  \hat{N}_{\bh}(z_L)&\equiv& \int\!\dr^2\btheta~W(\btheta)\int\!\dr\chi
+  ~\frac{\dr^2V}{\dr\chi d\Omega} \int\!\dr M~ S(M)f_\bh(\chi;z_L)
+  n_\bh(\bx;M)\nonumber\\
+  &=&\int\!\dr^2\btheta~W(\btheta)\int\!\dr\chi~\chi^2
+  f_\bh(\chi;z_L)\int\!\dr M~ S(M)\bnh(M;\chi)\left[
+  1+b(M)\deltam(\chi,\chi\btheta)\right]\nonumber\\ &=&\Omega_S
+  \int\!\dr\chi~\chi^2 f_\bh(\chi;z_L)\int\!\dr M~ S(M)\bnh(M;\chi)\left[
+  1+b(M) \deltab(\chi)\right], \label{eq:eN}
+\end{eqnarray}
+%
+where quantities with hat notation $\hat{\hspace{1em}}$, here and
+hereafter, denote their estimator, the quantity with bar notation
+denotes the ensemble average expectation, and
+the background mode is
+defined as
+%
+\begin{equation}
+\deltab(\chi)\equiv
+ \frac{1}{\Omega_S}\int\!\dr^2\btheta~W(\btheta)\deltam(\chi,\chi\btheta)
+ =\frac{1}{A_S(\chi)}\int\!\dr^2\bx_\perp ~W(\bx_\perp)\deltam(\chi,\bx_\perp),
+%\label{eq:deltab}
+\end{equation}
+%
+$\bx_\perp\equiv \chi\btheta$, and $A_S(\chi)\equiv \chi^2\Omega_S$ is
+the effective survey area of the plane at distance $\chi$, in units of
+[${\rm Mpc}^2$]. Eq.~(\ref{eq:deltab}) shows that the background mode at
+each redshift is from the average of Fourier modes perpendicular to the
+line-of-sight direction. If ignoring the effect of radial Fourier mode
+on clustering observables, whcih is a good approximation for lensing
+observables, the background mode can be realized to cause a shift in the
+mean mass density in each redshift plane. Note that, throughout this
+paper, we employ a flat-geometry universe, where the radial and
+angular-diameter distances are the same, and we emloy the flat sky
+approximation.  The esemble average expectation can be compuated as
+%
+\begin{eqnarray}
+ \bar{N}_\bh(z_L)&\equiv& \ave{\hat{N}_{\bh}(z_L)}=
+\int\!\dr^2\btheta~W(\btheta)\int\!\dr\chi~\chi^2 f_\bh(\chi;z_L)\int\!\dr M~
+  S(M)\bnh(M;\chi)\left[
+		  1+b(M)\ave{\deltam(\chi,\chi\btheta)}\right]
+  \nonumber\\
+ &=&\Omega_S\int\!\dr\chi~\chi^2 f_\bh(\chi;z_L)\int\!\dr M~
+  S(M)\bnh(M;\chi),
+\end{eqnarray}
+%
+where we have uesd the fact $\ave{\deltab}=0$.
+
+Similarly, taking into account the survey window, we define an estimator
+of the number desnity fluctuation field of halos of mass $M$ and at
+redschift $\chi$ as
+%
+\begin{equation}
+\dnh^W(\bx_\perp; M,
+ \chi)=\bnh(M;\chi)b(M)W(\btheta)\deltam(\chi,\chi\btheta).
+ \label{eq:dnh}
+\end{equation}
+%
+Since we later consider the projected field, we focus on the field in
+the two-diemnsinal plane perpendicular to the line-of-sight direction;
+hence, a mapping between the angular position and the comoving,
+perpendicular position vector for each halo is given as
+$\bx_\perp=\chi\btheta$. This is feasible as redshift of each is assumed
+to be known. Integrating the above field in the light cone, weighted by
+the selection function yields an estimator of the projected number
+density fluctuation field:
+%
+\begin{equation}
+ \sigmah^W(\btheta)\equiv \int\!\dr\chi~\chi^2 f_\bh(\chi;z_L)\int\!\dr M~
+  S(M)\dnh^W(M;\chi).
+  \end{equation}
+ %
+ The Fourier transform of $\dnh$ is
+ %
+\begin{equation}
+ \tdnh^W(\bk_\perp,\chi)\equiv \int\!\dr^2\bx_\perp~\dnh^W(\bx_\perp)e^{-i\bx_\perp\cdot\bk_\perp}
+  =\bnh(M;\chi)
+  b(M)\int\!\frac{\dr k_\parallel}{2\pi}\tdeltam^W(\bk_\perp,k_\parallel;\chi)
+  e^{i\chi k_\parallel},
+\end{equation}
+%
+where
+%
+\begin{equation}
+ \tdeltam^W(\bk,k_\parallel;\chi)\equiv 
+  \int\!\frac{\dr^2\bq}{(2\pi)^2}\tW(\bl=\chi\bq)
+  \tdeltam(k_\parallel,\bk_\perp-\bq),
+\end{equation}
+%
+and $\tW(\bq;\chi)\equiv
+\int\!\dr^2\bx_\perp~W(\bx)e^{-i\bq\cdot\bx_\perp}$ with $\bx_\perp=\chi\btheta$.
+
+
+
+\begin{equation}
+\hphh(k_{\perp,i})\equiv
+ \frac{1}{\hat{N}_\bh(z_L)^2}\int\!\dr\chi\int\!\dr\chi'
+f_\bh(\chi)f_\bh(\chi')\frac{1}{\chi^2\Omega_S}\int\!\frac{\dr^2\bk_{\perp}}{A(k_{\perp
+i})} \tdnh^W(\bk_\perp,\chi)\tdnh^W(-\bk_\perp,\chi')
+\end{equation}
+
+
+Let us define an estimator of the projected power spectrum of halos in
+the light cone as
+%
+\begin{equation}
+ \hphh(k_{\perp, i})=\frac{1}{\Omega_S\hat{N}_\bh(z_L)^2}
+  \int\!\dr\chi\int\!\dr\chi' \chi^2\chi^{\prime 2}f_\bh(\chi;z_L)f_\bh(\chi';z_L)
+  \int\!\dr M\int\!\dr M'~S(M)S(M')\int_{k_{\perp
+  i}}\!\frac{\dr^2\bk_\perp}{V(k_{\perp, i})} \tdnh^W(\bk_\perp,\chi) \tdnh^W(-\bk_\perp,\chi)
+\end{equation}
+%
+
+\begin{eqnarray}
+ \ave{ \hphh(k_{\perp, i})}&=&
+  \frac{1}{\Omega_S\hat{N}_\bh(z_L)^2}
+  \int\!\dr\chi\int\!\dr\chi' \chi^2\chi^{\prime 2}f_\bh(\chi;z_L)f_\bh(\chi';z_L)
+  \int\!\dr M\int\!\dr M'~S(M)S(M')\chi^2\chi^{\prime
+  2}b(M)\bnh(M) b(M')
+  \bnh(M')
+\nonumber\\
+&&\times  
+  \int\!\frac{\dr^2\bq}{(2\pi)^2}
+  \int\!\frac{\dr^2\bq'}{(2\pi)^2}
+    \int_{k_{\perp
+ i}}\!\frac{\dr^2\bk_\perp}{V(k_{\perp, i})}
+\int\!\frac{\dr k_\parallel}{2\pi}
+    \tW_{\bq}\tW_{\bq'}
+    P(|\bk-\bq|,k_\parallel)e^{ik_\parallel(\chi-\chi')}(2\pi)^2\delta_D^2(\bq-\bq')\nonumber\\
+ &\simeq &
+      \frac{1}{\Omega_S\hat{N}_\bh(z_L)^2}
+  \int\!\dr\chi \chi^4f_\bh(\chi;z_L)^2
+  \left[\int\!\dr M~S(M)b(M)\bnh(M)\right]^2\chi^4P(k_{\perp,
+  i})\int\!\frac{\dr^2\bq}{(2\pi)^2}|\tW(\bl=\chi\bq)|^2
+\end{eqnarray}
+
+
+In the following, for simplicity we consider the uniform radial
+selection given by
+%
+\begin{equation}
+ f_\bh(\chi;z_L)=\Theta(\chi_L-\chi+\Delta\chi/2)\Theta(\chi_L+\chi-\Delta\chi/2),
+\end{equation}
+%
+where $\Theta(x)$ is the Heviside-step function, defined as
+$\Theta(x)=1$ if $x>0$ otherwise $\Theta(x)=0$, $\chi_L$ is the radial
+comoving distance to $z_L$, $\chi_L\equiv \chi(z_L)$, and $\Delta\chi$
+is the radial bin width.
+
+
+For a reasonably narrow radial bin of the $z_L$-redshift slice,
+satisfying $\Delta\chi/\chi_L\ll 1$, the cumulative number counts can be
+simplified as
+%
+\begin{equation}
+ \hat{N}_\bh(z_L)\simeq \bar{N}_{\bh}(z_L)\left[1+\bar{b}_1\delta_\br\right]
+\end{equation}
+
+\begin{equation}
+ \delta^W_{\bh}(\bx_\perp;\chi)\equiv W(\chi\btheta)\delta^{\rm 2D}_{\bh}(\bx_\perp,\chi)
+\end{equation}
+
+\begin{equation}
+\tdelta^W_{\bh}(\bk_\perp)=\int\!\frac{\dr^2\bq}{(2\pi)^2}\tW(\bq)\tdelta_{\bh}(\bk_\perp-\bq)
+\end{equation}
+
+In this paper we consider a catalog of halos, probed with galaxies
+and/galaxy clusters. The average, projected number density of halos is
+given in terms of the halo mass function as
+%
+\begin{eqnarray}
+\bar{N}_{\mathrm{h}}(z_L)&=&\int\!\dr\chi~\frac{\dr^2V}{\dr\chi
+ d\Omega}\int\!\dr M\frac{\dr n}{\dr M}S(M, \chi;z_L),
+% =
+% \int\!\dr\chi~\chi^2\int\!\dr M\frac{\dr n}{\dr M}S(M,\chi; z_L),
+%\nonumber\\
+% &\simeq & \chi_L^2\Delta\chi\int\!\dr M\frac{\dr n}{\dr M}S(M,z_L)\nonumber\\
+% &=&\chi_L^2 \Delta \chi \bnh(z_L)
+\end{eqnarray}
+%
+where $\dr^2V/\dr\chi d\Omega=\chi^2$ for a flat-geometry universe,
+$\chi(z)$ is the comoving angular distance to redshift $z$, $dn/\dr M$ is
+the three-dimensional number density of halos with masses $[M,\dr M]$ at
+$z(=z(\chi))$, and $S(M,\chi;z_L)$ is the selection function of halos at
+a bin of redshift around $z_L$. Note that the radial and
+angular-diameter distances are equivalent for a flat-geometry universe.
+For simplicilty, assuming that mass and redshift for each halo is
+available, we consider the following, trivial selection function,
+defined as
+%
+\begin{equation}
+ S(\chi,M;z_L)=\Theta(\chi-\chi_L+\Delta\chi/2)\Theta(\chi_L+\Delta\chi/2-\chi)
+\tilde{S}(M),
+%\tilde{S}(M), 
+\end{equation}
+%
+where $\Theta(x)$ is the Heviside-step function, defined as
+$\Theta(x)=1$ if $x>0$ otherwise $\Theta(x)=0$, $\chi_L$ is the radial
+comoving distance to $z_L$, $\chi_L\equiv \chi(z_L)$, and
+$\Delta\chi$ is the radial bin width. $S(\chi,M;z_L)$ is nonzero in the
+radial range of $\chi_L-\Delta\chi/2\le \chi\le \chi_L+\Delta\chi/2$.
+$\tilde{S}(M)$ is the selection of halo masses. We don't specify the
+form of $\tilde{S}(M)$ to keep generality of our discussion.
+
+If a finite-volume survey region is embedded into a coherent density
+contrast, which we hereafter call the background mode $\delta_\br$, the
+cumulative number of halos is modulated as
+%
+\begin{equation}
+ \hat{N}_\bh(z_L;\delta_\br)=\int\!\dr\chi~\chi^2\int\!\dr M~\frac{\dr n}{\dr M}S(M,\chi;z_L)
+  \left[1+b(M)\delta_\br\right]=\bar{N}_{\bh}(z_L)(1+\bar{b}_1\delta_\br)
+\end{equation}
+%
+where $b(M)$ is the linear halo bias and $\bar{b}_1$ is the average
+bias over the halo mass function:
+%
+\begin{equation}
+ \bar{b}_1\equiv
+  \frac{1}{\bar{N}_\bh(z_L)}\int\!\dr\chi~\chi^2\int\!\dr M\frac{\dr n}{\dr M}S(M,\chi;z_L)b(M)
+  =\frac{1}{\bar{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi~\chi^2{n}_\bh^0(\chi),
+\end{equation}
+%
+where the integration $\int_{\chi_L}\!\dr\chi$ denotes the radial
+integration over the range $[\chi_L-\Delta\chi/2,\chi_L+\Delta\chi/2]$,
+and we introduced the collapsed notation:
+%
+\begin{equation}
+ {n}_{\bh}^\beta(\chi)\equiv \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)\left[b(M)\right]^\beta.
+  \label{eq:def_S}
+\end{equation}
+%
+The background density mode is defined in terms of the survey window
+funciton $W(\chi,\btheta)$ as
+%
+\begin{equation}
+\delta_\br\equiv
+ \frac{1}{V_S}\int\!\dr\chi~\chi^2\int_{\Omega_s}\!\dr^2\btheta~ W(\chi,\btheta)
+ \deltam(\chi,\chi\btheta).
+\end{equation}
+%
+Note that the survey window generally includes both the radial and
+angular windows.  If the survey window has a simple geometry, without
+any masked region, the survey volume for the redshift slice around
+$z_L$, $V_S$, is simply given as $V_S\simeq \chi^2_L\Delta\chi\Omega_S$, where
+$\Omega_S$ is the survey area.
+
+The projected number density fluctuation field of halos in the radial
+bin around $z_L$ is given as
+%
+\begin{eqnarray}
+ \delta^{\rm
+  2D}_{\mathrm{h}}(\bx_\perp,z_L)&=&\frac{1}{\hat{N}_{\mathrm{h}}}\int_{\chi_L}\!\dr\chi~
+  %  \frac{\dr^2V}{\dr\chid\Omega}
+  \chi^2
+  \!\int\!\dr M\frac{\dr n}{\dr M}\tilde{S}(M)\deltah(\chi,\bx_\perp;
+  M),
+%  \nonumber\\
+% &\simeq &
+  % \frac{1}{\bnh(z_L)}\int\!\dr M\frac{\dr n}{\dr M}S(M;z_L)\deltah(\chi,\bx_\perp; M).
+\end{eqnarray}
+%
+where $\bx_\perp$ is the projected position vector of each halo in the
+perpendicular plane to the line-of-sight.
+%Hence the Fourier mode of the
+%halo distribution, needed for the shear-halo cross-correlation, is given as
+%%
+%\begin{eqnarray}
+% \hat{\delta}^{\rm 2D}_{\bh}(\bk_\perp;z_L)&=&\int\!\dr^2\bx_\perp
+%  \delta^{\rm 2D}_{\bh}(\bx_\perp;
+%  z_L)e^{-i\bk_\perp\cdot\bx_\perp}\nonumber\\
+% &=& \frac{1}{\hat{N}_{\mathrm{h}}}\int\!\dr\chi~\frac{\dr^2V}{\dr\chi
+%  d\Omega}\!\int\!\dr M\frac{\dr n}{\dr M}S(M;z_L)\int\!\frac{\dr k_\parallel}{2\pi}
+%  \deltah(\bk_\perp,k_\parallel;M, z_L)e^{ik_\parallel\chi}.
+%\end{eqnarray}
+
+Using the Limber's appxoimation \citep{Limber:54}, we can express the
+projected power spectrum of halos as
+%
+\begin{eqnarray}
+ \phh^{\rm 2D}(k_{\perp};z_L)&=&\frac{1}{\hat{N}_{\bh}(z_L)^2}
+  \int_{\chi_L}\!\dr\chi~\chi^4
+  \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)
+  \int\!\dr M'~\frac{\dr n}{\dr M'}\tilde{S}(M')
+  \phh(k_\perp;M,M',z_L)\nonumber\\
+ &=&\frac{1}{\hat{N}_{\bh}(z_L)^2}
+  \int_{\chi_L}\!\dr\chi~\chi^4\left[n^1_{\bh}(\chi)\right]^2\pml(k_\perp;\chi)
+\end{eqnarray}
+%
+where $\phh(k;M,M',\chi)$ is the three-dimensinal power spectrum between
+two halo of masses $M$ and $M'$ at redshift $z=z(\chi)$. In the second
+line on the r.h.s., we assumed that the halo power spectrum is given as
+$\phh(k,M,M')\simeq
+b(M)b(M')P^{\rm lin}_{\rm m}(k)$ in the halo model approach, where
+$\pml(k)$ is the linear mass power spectrum. In the following we will
+often denote $k$ instead of $k_\perp$ for notational simplification.
+%Note that the wavenumber
+%$\k$ in the above equation is from wavevectors $\bk_\perp$ perpendicular
+%to the line-of-sight direction due to the Limber's approximation.
+If we
+further assume a thin redshift slice, $\Delta\chi/\chi_L\ll 1$, the halo
+power spectrum can be further simplified as
+%
+\begin{eqnarray}
+ \phh(k_\perp;z_L)\simeq \frac{\bar{b}_1^2}{\Delta \chi}P^{\rm lin}_{\rm m}(k).
+\end{eqnarray}
+%
+%where
+%%
+%\begin{equation}
+%\bar{b}_1\equiv \frac{1}{\bnh(z_L)}\int\!\!\dr M~\frac{\dr n}{\dr M}S(M,z_L)b(M).
+%\end{equation}
+
+
+
+From the above equation, we can find the power spectrum of stacked
+lensing as
+%
+\begin{equation}
+ P_{\dsigma}(k)=\frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}
+  \int_{\chi_L}\!\dr\chi~\chi^2
+  \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)P_{\rm hm}(k;M).
+\end{equation}
+%
+The average excess surface mass density profile, $\ave{\dsigma}(R)$,
+is a more direct observable of the stacked lensing, and is given as
+%
+\begin{equation}
+ \ave{\dsigma}(R)=\int\!\frac{k\dr k}{2\pi}P_{\dsigma}(k)J_2(kR).
+\end{equation}
+%
+If we use the halo model, we can express the power spectrum by a sum of
+the 1- and 2-halo terms:
+%
+\begin{equation}
+ P_{\dsigma}(k)=P^{\rm 1h}_{\dsigma}(k)+P^{\rm 2h}_{\dsigma}(k),
+\end{equation}
+%
+with
+%
+\begin{eqnarray}
+ P^{\rm
+  1h}_{\dsigma}(k)&\equiv &
+  \frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi ~\chi^2
+  \int\!\dr M~\frac{\dr n}{\dr M}S(M,z_L)M|u_M(k;z_L)|
+  =\frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi ~\chi^2I^0_1(k;\chi),\nonumber \\
+ P^{\rm 2h}_{\dsigma}(k)&=&
+ \frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!\dr\chi ~\chi^2
+  \int\!\dr M~\frac{\dr n}{\dr M}\tilde{S}(M)
+  P_{\rm hm}^{2h}(k;M,z_L)
+=\frac{\bar{\rho}_{\rm m0}}{\hat{N}_\bh(z_L)}\int_{\chi_L}\!d\chi
+~\chi^2 n_\bh^1(\chi)\pml(k;\chi)
+\simeq \bar{b}_1\bar{\rho}_{\rm m0}P^{\rm lin}_{\rm m}(k),\nonumber \\
+\end{eqnarray}
+%
+where we introduced the notation:
+%
+\begin{equation}
+ I^\beta_\mu(k_1,\cdots,k_\mu)\equiv \int\!\dr M\frac{\dr n}{\dr M}\tilde{S}(M)
+  \beta_1^\beta\prod_{i=1}^\mu u_M(k_i),
+\end{equation}
+%
+where $u_M(k)$ is the Fourier transform of the average mass density
+profile for halos of mass $M$.
+
+\end{document}
