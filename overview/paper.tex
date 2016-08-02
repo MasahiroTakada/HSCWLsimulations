@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pdfoutput=1
+
+\documentclass[iop, apjl, twocolappendix, numberedappendix]{emulateapj}
+
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{framed} 
+\usepackage{txfonts}
+\usepackage{epstopdf}
+\usepackage{color}
+\usepackage{rotating}
+\usepackage{natbib}
+\usepackage{ulem}
+\usepackage{xspace}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue]{hyperref}
+
+
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+\newdimen\hssize
+\hssize=8.4truecm
+\newdimen\hdsize
+\hdsize=16.8truecm
+
+\input{commands}
+\input{macros}
+\input{citation_fix}
+
+
+\def\avrg#1{\left\langle #1 \right\rangle}
+\def\avrgb#1{\left\langle #1 \right\rangle_\textrm{b}}
+
+\newcommand{\mtrv}[1]{{\textcolor{red}{#1}}}
+
+\shorttitle{Halo Emulator for Halo Statistics}
+\shortauthors{Nishimichi et al.}
+
+%\journalinfo{The Astrophysical Journal, {\rm 789:1 (18pp), 2014 July 1}}
+%\submitted{Received 2014 January 6; accepted 2014 April 14; published 2014 June 9}
+\slugcomment{To be submitted to the Astrophysical Journal}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% EPS OR PDF FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\figdir{.}
+\def\figext{pdf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE ETC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Halo emulator: fast computation of halo statistics}
+\author{
+Takahiro Nishimichi \altaffilmark{1}, 
+....
+}
+
+\affil{
+$^1$ Kavli Institute for the Physics and Mathematics of the Universe (WPI),
+Tokyo Institutes for Advanced Study, The University of Tokyo,\\ 5-1-5
+Kashiwanoha, Kashiwa-shi, Chiba, 277-8583, Japan;{\tt takahiro.nishimichi@ipmu.jp}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \begin{abstract}
+  We develop a emulator of halo statistics (halo mass function, halo
+  auto-spectrum, and halo-matter cross correlation) that are given as a
+  function of halo mass, redshift and cosmological model, carefully
+  calibrated using a suite of $N$-body siulations assuming cold dark
+  matter dominated structure formation scenario. 
+ \end{abstract}
+
+\keywords{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\label{sec:intro}
+
+\section{Results}
+
+\mtrv{The results should include halo mass function, halo auto-spectra,
+ halo-matter cross-spectra, matter power spectrum, bias function $b(k)$,
+ cross-correlation function $r(k)$, ... as a function of halo mass and
+ redshift, and cosmological model.}
+
+
+\section{Measurement of Cluster-galaxy lensing}
+
+\bibliographystyle{apj}
+
+\end{document}
